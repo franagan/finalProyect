@@ -4,7 +4,7 @@ import Navbar from "./componentes/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Comercios from "./pages/Comercios/Comercios";
 import Comercio1 from "./pages/Comercios/Comercio1";
-import Comercio2 from "./pages/Comercios/Comercios";
+import Comercio2 from "./pages/Comercios/Comercio2";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
