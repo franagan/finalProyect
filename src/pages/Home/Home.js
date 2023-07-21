@@ -55,7 +55,7 @@ const Home = () => {
         <i></i>
       </div>
 
-      {/* <input type="text" placeholder= "Busca tu tienda" onChange={e=> setQuery(e.target.value)}/> */}
+      {/* HAY QUE CAMBIAR LAS RUTAS A LOS NOMBRES */}
       
       <div className="cardContainer" >
 

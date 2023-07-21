@@ -23,7 +23,11 @@ export const Navbar = () => {
             <li>
               <Link className="dropdown-item" to="comercio2">Comercio 2</Link>
             </li>
+            <li>
+              <Link className="dropdown-item" to="comercio3">Comercio 3</Link>
+            </li>
           </ul>
+        
         </li>
         <li className="nav-item dropdown">
           <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</Link>
