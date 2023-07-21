@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Comercio.css";
 
 const Comercio1 = () => {
@@ -6,7 +6,7 @@ const Comercio1 = () => {
     image:
     "https://cdn-deeph.nitrocdn.com/whkmsNyzzgPEaouvijPEOXewHPuYbFiV/assets/images/optimized/rev-3c0c3a5/wp-content/uploads/2016/04/decoracion-zapaterias-13.jpg",
     name: "Nombre del comercio",
-    description: "una pequeña presentacion del comercio...somos un comercio dedicado a la venta de lo que sea que quieras vender, bla, bla, bla.",
+    description: "Una pequeña presentacion del comercio... Somos un comercio dedicado a la venta de lo que sea que quieras vender, bla, bla, bla.",
     address: "Calle Lo que sea 28",
     phone: "666666666",
     location: "Parla",
@@ -52,6 +52,38 @@ const Comercio1 = () => {
     // implementar la lógica para agregar al carrito.
     console.log(`Añadir ${product.name} al carrito`);
   };
+  const [formData, setFormData] = useState({
+    email: "",
+    comment: "",
+  });
+
+  const [mensajeEnviado, setMensajeEnviado] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const email = formData.get("email");
+    const comment = formData.get("comment");
+    console.log("Email:", email);
+    console.log("Comment:", comment);
+    // agregar la lógica para enviar el formulario a backend
+    setFormData({
+      email: "",
+      comment: "",
+    });
+    setMensajeEnviado(true);
+    // para hacer que el mensaje se borre a los 7segundos
+      setTimeout(() => {
+      setMensajeEnviado(false);
+    }, 7000);
+  };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   return (
     <div>
@@ -60,7 +92,7 @@ const Comercio1 = () => {
             className="foto"
             alt="imagen del comercio1"/>
         <h2>{comercioData.name}</h2>
-        <p>{comercioData.description}</p>
+        <h4>{comercioData.description}</h4>
         <p>Dirección: {comercioData.address}</p>
         <p>Teléfono: {comercioData.phone}</p>
         <p>Localidad: {comercioData.location}</p>
@@ -71,7 +103,7 @@ const Comercio1 = () => {
         </div>
 
 
-      <h4>productos disponibles</h4>
+      <h4>Productos disponibles</h4>
       <div className="cardContainer">
       {productos.map((product) => (
           <div key={product.id} className="card">
@@ -82,7 +114,7 @@ const Comercio1 = () => {
             />
             <h4>{product.name}</h4>
             <p>Precio: {product.price}</p>
-            <button onClick={() => addToCart(product)} class="btn btn-success">
+            <button onClick={() => addToCart(product)} className="btn btn-success">
               Añadir
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -103,25 +135,33 @@ const Comercio1 = () => {
       <div className="inputbox">
         <h4>formulario de contacto</h4>
         <p>(contacta directamente con la tienda)</p>
+        <form onSubmit={handleSubmit}>
           <div className="form-floating mb-3">
-            <input
+          <input
               type="email"
               className="form-control"
               id="floatingInputDisabled"
               placeholder="name@example.com"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
             />
             <label htmlFor="floatingInput">Tu Email</label>
           </div>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <textarea
-              class="form-control"
+              className="form-control"
               placeholder="Leave a comment here"
               id="floatingTextarea2Disabled"
+              name="comment"
+              value={formData.comment}
+              onChange={handleInputChange}
             ></textarea>
-            <label for="floatingTextarea">¿En que podemos ayudarte?</label>
-
+            <label htmlFor="floatingTextarea">¿En que podemos ayudarte?</label>
           </div>
           <button type="submit" className="btn btn-primary">Enviar</button>
+        </form>
+        {mensajeEnviado && <p className="mensaje-enviado">Mensaje Enviado, en breve nos pondremos en contacto contigo.</p>}
         </div>
 
     </div>
