@@ -8,11 +8,12 @@ import Comercio2 from "./pages/Comercios/Comercios";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
+import AuthProvider from "./Context/AuthProvider";
 
 const App = () => {
   return (
     <Router>
-      <div>
+      <AuthProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +24,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
         </Routes>
-      </div>
+      </AuthProvider>
     </Router>
   );
 };
