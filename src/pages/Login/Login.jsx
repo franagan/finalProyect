@@ -44,33 +44,28 @@ const Login = () => {
           </div>
           <div className="col-lg-8">
             <div className="card-body py-5 px-md-5">
+              <h2>Iniciar sesión</h2>
               <form onSubmit={onSubmit}>
-                {/* Username input */}
                 <div className="form-outline mb-4">
                   <input
                     type="text"
                     id="username"
                     className="form-control"
+                    placeholder="Nombre de usuario"
                     value={formUser.username}
                     onChange={handleInput}
                   />
-                  <label className="form-label" htmlFor="username">
-                    Username
-                  </label>
                 </div>
 
-                {/* Password input */}
                 <div className="form-outline mb-4">
                   <input
                     type="password"
                     id="password"
                     className="form-control"
+                    placeholder="Contraseña"
                     value={formUser.password}
                     onChange={handleInput}
                   />
-                  <label className="form-label" htmlFor="password">
-                    Password
-                  </label>
                 </div>
 
                 {/* 2 column grid layout for inline styling */}
