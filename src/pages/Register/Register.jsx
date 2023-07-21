@@ -38,6 +38,11 @@ const Register = () => {
       return;
     }
 
+    if (password !== confirmPassword) {
+      setError("Las contraseñas no coinciden.");
+      return;
+    }
+
     setError("");
     setFormUser({ username: "", email: "", password: "", confirmPassword: "" });
   };
