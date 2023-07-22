@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import About from './pages/About/About';
 import AuthProvider from './Context/AuthProvider';
+import NotFound from './NotFound';
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </AuthProvider>
         </Router>
