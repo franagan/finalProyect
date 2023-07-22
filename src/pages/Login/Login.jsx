@@ -5,7 +5,7 @@ const Login = () => {
   const { login } = useAuth();
 
   const [formUser, setFormUser] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -19,13 +19,18 @@ const Login = () => {
 
   const onSubmit = async (ev) => {
     ev.preventDefault();
-    const { username, password } = formUser;
+    const { email, password } = formUser;
 
-    const isAuthenticated = await login(username, password);
+    if (!email || !password) {
+      setError("Debes ingresar un email y una contraseña.");
+      return;
+    }
+
+    const isAuthenticated = await login(email, password);
 
     if (isAuthenticated) {
       setError("");
-      setFormUser({ username: "", password: "" });
+      setFormUser({ email: "", password: "" });
     } else {
       setError("Usuario o contraseña incorrectos");
     }
@@ -49,10 +54,10 @@ const Login = () => {
                 <div className="form-outline mb-4">
                   <input
                     type="text"
-                    id="username"
+                    id="email"
                     className="form-control"
-                    placeholder="Nombre de usuario"
-                    value={formUser.username}
+                    placeholder="Correo electrónico"
+                    value={formUser.email}
                     onChange={handleInput}
                   />
                 </div>
@@ -79,6 +84,7 @@ const Login = () => {
                   Login
                 </button>
               </form>
+              {error && <div className="text-danger">{error}</div>}
             </div>
           </div>
         </div>

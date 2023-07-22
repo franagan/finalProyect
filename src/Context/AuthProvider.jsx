@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -7,56 +7,101 @@ export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const INITIAL_STATE = {
-    username: "",
+    email: "",
     password: "",
   };
 
   const [formUser, setFormUser] = useState(INITIAL_STATE);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const storedToken = sessionStorage.getItem("token");
-    setIsLoggedIn(!!storedToken);
-    setIsLoading(false);
-  }, []);
+    const checkLoginStatus = async () => {
+      const storedToken = sessionStorage.getItem("token");
+      if (storedToken) {
+        try {
+          const response = await fetch('/api/verify-token', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${storedToken}`,
+            },
+          });
 
-  const loginUser = async (username, password) => {
-    const fakeUser = {
-      username: "Jacinto91",
-      password: "1234",
+          if (response.ok) {
+            setIsLoggedIn(true);
+          } else {
+            setIsLoggedIn(false);
+          }
+        } catch (error) {
+          console.error('Error during token verification:', error);
+          setIsLoggedIn(false);
+        }
+      }
+      setIsLoading(false);
     };
 
-    if (username === fakeUser.username && password === fakeUser.password) {
-      const fakeToken = "fake_token_here";
-      sessionStorage.setItem("token", fakeToken);
-      setIsLoggedIn(true);
-      console.log("isLoggedIn del Auth is true");
-      setFormUser(INITIAL_STATE);
-      return true;
-    } else {
+    checkLoginStatus();
+  }, []);
+
+  const loginUser = async (email, password) => {
+    try {
+      if (!email || !password) {
+        console.error("Email y contraseña son obligatorios.");
+        return false;
+      }
+
+      const response = await fetch('https://backfinalproyect.vercel.app/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        sessionStorage.setItem('token', data.token);
+        setIsLoggedIn(true);
+        setFormUser(INITIAL_STATE);
+        navigate('/'); // Redirect to home page after successful login
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
       return false;
     }
   };
 
-  const logout = () => {
-    sessionStorage.removeItem("token");
-    setIsLoggedIn(false);
-  };
+  const logout = async () => {
+    try {
+      await fetch('/api/logout', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        },
+      });
 
-  useEffect(() => {
-    if (isLoggedIn) {
-
-      console.log("isLoggedIn es true en el AuthProvider");
+      sessionStorage.removeItem('token');
+      setIsLoggedIn(false);
+      navigate('/login'); // Redirect to login page after successful logout
+    } catch (error) {
+      console.error('Error during logout:', error);
     }
-  }, [isLoggedIn]);
+  };
 
   return (
     <>
-      {isLoggedIn && <Navigate to="/" />}
-      <AuthContext.Provider value={{ isLoggedIn, isLoading, login: loginUser, logout }}>
-        {children}
-      </AuthContext.Provider>
+      {isLoading ? (
+        // You can display a loading spinner or some other indicator while checking the login status
+        <div>Loading...</div>
+      ) : (
+        <AuthContext.Provider value={{ isLoggedIn, isLoading, login: loginUser, logout }}>
+          {children}
+        </AuthContext.Provider>
+      )}
     </>
   );
 };
