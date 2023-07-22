@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./componentes/Header/Header";
 import Navbar from "./componentes/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Comercios from "./pages/Comercios/Comercios";
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
+        <Header/>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

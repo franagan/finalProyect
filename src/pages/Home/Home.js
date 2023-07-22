@@ -5,13 +5,13 @@ import "./Home.css";
 const Home = () => {
   return (
     <div>
-      <header className="inicioContainer">
+      <div className="inicioContainer">
         <h1>Bienvenido a nuestra página de Tiendas Online</h1>
         <p>
           Baja para explorar una variedad de tiendas en línea donde realizar tus
           compras
         </p>
-      </header>
+      </div>
 
       <div className="cardContainer">
         <div className="card" style={{ width: "18rem" }}>
