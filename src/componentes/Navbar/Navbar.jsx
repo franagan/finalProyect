@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const { isLoggedIn, logout } = useAuth();
+
+  useEffect(() => {
+    console.log("isLoggedIn cambió:", isLoggedIn);
+  }, [isLoggedIn]);
+
   return (
     <div className="navbar-container">
       <ul className="nav nav-tabs navbar-custom">
         <li className="nav-item">
           <Link className="nav-link" to="/">
-            Incio</Link>
+            Inicio</Link>
         </li>
         <li className="nav-item dropdown">
           <Link
@@ -26,7 +33,24 @@ export const Navbar = () => {
           </ul>
         </li>
         <li className="nav-item dropdown">
-          <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</Link>
+        {isLoggedIn ? (
+            <>
+              <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Logout
+              </Link>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link className="dropdown-item" to="/" onClick={logout}>
+                    Logout
+                  </Link>
+                </li>
+              </ul>
+            </>
+          ) : (
+            <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              Login
+            </Link>
+          )}
           <ul className="dropdown-menu">
             <li>
               <Link className="dropdown-item" to="login">
