@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { useState } from "react";
 import { useAuth } from "../../Context/AuthProvider";
 
@@ -90,4 +88,4 @@ const Login = () => {
 };
 
 export default Login;
->>>>>>> login
+
