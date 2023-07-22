@@ -73,18 +73,12 @@ const Login = () => {
                   />
                 </div>
 
-                {/* 2 column grid layout for inline styling */}
-                <div className="row mb-4">
-                  <div className="col d-flex justify-content-center">
-                  </div>
-                </div>
+                {error && <div className="alert alert-danger">{error}</div>}
 
-                {/* Submit button */}
                 <button type="submit" className="btn btn-primary btn-block mb-4">
                   Login
                 </button>
               </form>
-              {error && <div className="text-danger">{error}</div>}
             </div>
           </div>
         </div>

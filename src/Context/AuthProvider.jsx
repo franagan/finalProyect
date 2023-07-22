@@ -14,6 +14,7 @@ const AuthProvider = ({ children }) => {
   const [formUser, setFormUser] = useState(INITIAL_STATE);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +35,6 @@ const AuthProvider = ({ children }) => {
             setIsLoggedIn(false);
           }
         } catch (error) {
-          console.error('Error during token verification:', error);
           setIsLoggedIn(false);
         }
       }
@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
   const loginUser = async (email, password) => {
     try {
       if (!email || !password) {
-        console.error("Email y contraseña son obligatorios.");
+        setError("Debes ingresar un email y una contraseña.");
         return false;
       }
 
@@ -64,38 +64,29 @@ const AuthProvider = ({ children }) => {
         sessionStorage.setItem('token', data.token);
         setIsLoggedIn(true);
         setFormUser(INITIAL_STATE);
-        navigate('/'); // Redirect to home page after successful login
+        setError("");
+        navigate('/');
         return true;
       } else {
+        const data = await response.json();
+        setError(data.message || "Usuario o contraseña incorrectos");
         return false;
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      setError("Error de inicio de sesión");
       return false;
     }
   };
 
-  const logout = async () => {
-    try {
-      await fetch('/api/logout', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
-        },
-      });
-
-      sessionStorage.removeItem('token');
-      setIsLoggedIn(false);
-      navigate('/login'); // Redirect to login page after successful logout
-    } catch (error) {
-      console.error('Error during logout:', error);
-    }
+  const logout = () => {
+    sessionStorage.removeItem('token');
+    setIsLoggedIn(false);
+    navigate('/login');
   };
 
   return (
     <>
       {isLoading ? (
-        // You can display a loading spinner or some other indicator while checking the login status
         <div>Loading...</div>
       ) : (
         <AuthContext.Provider value={{ isLoggedIn, isLoading, login: loginUser, logout }}>

@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthProvider";
 import "./Navbar.css";
 
 export const Navbar = () => {
   const { isLoggedIn, logout } = useAuth();
-
-  useEffect(() => {
-    console.log("isLoggedIn cambió:", isLoggedIn);
-  }, [isLoggedIn]);
 
   return (
     <div className="navbar-container">
