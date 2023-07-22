@@ -24,6 +24,8 @@ const Register = () => {
     setSuccessMessage("");
   };
 
+  const hasErrors = !!error;
+
   const registerUser = async () => {
     try {
       const { name, lastname, email, password, confirmPassword, phone } = formUser;
@@ -58,15 +60,6 @@ const Register = () => {
       }
 
       setError("");
-      setFormUser({
-        name: "",
-        lastname: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        phone: "",
-      });
-      setSuccessMessage("¡Tu cuenta ha sido creada con éxito!");
 
       const response = await fetch("https://backfinalproyect.vercel.app/user/register", {
         method: "POST",
@@ -79,18 +72,32 @@ const Register = () => {
       const data = await response.json();
       if (!response.ok) {
         setError(data.message);
+        throw new Error(data.message);
       } else {
-        console.log("Registro exitoso");
+        setSuccessMessage("¡Tu cuenta ha sido creada con éxito!");
+        setFormUser({
+          name: "",
+          lastname: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          phone: "",
+        });
       }
     } catch (error) {
       console.error("Error durante el registro:", error);
+      throw error;
     }
   };
 
-  const onSubmit = (ev) => {
+  const onSubmit = async (ev) => {
     ev.preventDefault();
 
-    registerUser();
+    try {
+      await registerUser();
+    } catch (error) {
+
+    }
   };
 
   return (
@@ -185,17 +192,17 @@ const Register = () => {
                   />
                 </div>
                 <div>
-                  {error && (
-                    <div className="alert alert-danger" role="alert">
-                      {error}
-                    </div>
-                  )}
-                  {successMessage && (
-                    <div className="alert alert-success" role="alert">
-                      {successMessage}
-                    </div>
-                  )}
-                </div>
+                {hasErrors && (
+                  <div className="alert alert-danger" role="alert">
+                    {error}
+                  </div>
+                )}
+                {!hasErrors && successMessage && (
+                  <div className="alert alert-success" role="alert">
+                    {successMessage}
+                  </div>
+                )}
+              </div>
                 <button type="submit" className="btn btn-primary btn-block mb-4">
                   Registrarse
                 </button>
