@@ -9,6 +9,7 @@ import Comercio3 from "./pages/Comercios/Comercio3";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
+import Footer from "./componentes/Footer/Footer";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );
