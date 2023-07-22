@@ -1,0 +1,171 @@
+.wrapper {
+  margin-top: 10%;
+}
+
+.wrapper h1 {
+  font-family: 'Noto';
+  font-size: 62px;
+  margin-bottom: 160px;
+  text-align: center;
+  color: #3c6a6f;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.team .team_member {
+  background: #fff;
+  margin: 5px;
+  margin-bottom: 50px;
+  width: 300px;
+  padding: 20px;
+  line-height: 20px;
+  color: #8e8b8b;
+  position: relative;
+}
+
+.team .team_member h3 {
+  color: #3c6a6f;
+  font-size: 26px;
+  margin-top: 50px;
+}
+
+.team .team_member p.role {
+  color: #ccc;
+  margin: 12px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.team .team_member .team_img {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.team .team_member .team_img img {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #3c6a6f;
+  border: 1px solid #3c6a6f;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+
+.social-icons a:hover {
+  background: #3c6a6f;
+  color: #fff;
+}
+
+.form-area {
+	padding-top: 7%;
+}
+.row.single-form {
+	box-shadow: 0 2px 20px -5px #3c6a6f;
+}
+.left {
+	background: #3c6a6f;
+	padding: 200px 98px;
+}
+.left h2 {
+	font-family: poppins;
+	color: #fff;
+	font-weight: 700;
+	font-size: 48px;
+}
+.left h2 span {
+	font-weight: 100;
+}
+.single-form{
+    background: #fff;
+}
+.right {
+	padding: 70px 100px;
+	position: relative;
+}
+.right i {
+	position: absolute;
+	font-size: 80px;
+	left: -27px;
+	top: 40%;
+	color: #fff;
+}
+.form-control {
+	border: 2px solid #3c6a6f;
+}
+.right button {
+	border: none;
+	border-radius: 0;
+	background: #3c6a6f;
+	width: 180px;
+	color: #fff;
+	padding: 15px 0;
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.right button:hover{
+    background-color: #34929c;
+}
+
+
+/*responsive*/
+
+@media (min-width:768px) and (max-width:991px){
+    .right i {
+	top: -52px;
+	transform: rotate(90deg);
+	left: 50%;
+}
+}
+
+@media (max-width:767px){
+    .left {
+  padding: 90px 15px;
+  text-align: center;
+}
+.left h2 {
+  font-size: 25px;
+}
+.right {
+  padding: 25px;
+}
+.right i {
+  top: -52px;
+  transform: rotate(90deg);
+  left: 46%;
+}
+    .right button {
+	width: 150px;
+	padding: 12px 0;
+}
+    
+}
