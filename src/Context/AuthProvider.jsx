@@ -13,32 +13,13 @@ const AuthProvider = ({ children }) => {
 
   const [formUser, setFormUser] = useState(INITIAL_STATE);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const checkLoginStatus = async () => {
       const storedToken = sessionStorage.getItem("token");
-      if (storedToken) {
-        try {
-          const response = await fetch('/api/verify-token', {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${storedToken}`,
-            },
-          });
-
-          if (response.ok) {
-            setIsLoggedIn(true);
-          } else {
-            setIsLoggedIn(false);
-          }
-        } catch (error) {
-          setIsLoggedIn(false);
-        }
-      }
-      setIsLoading(false);
+      setIsLoggedIn(!!storedToken);
     };
 
     checkLoginStatus();
@@ -85,15 +66,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <AuthContext.Provider value={{ isLoggedIn, isLoading, login: loginUser, logout }}>
-          {children}
-        </AuthContext.Provider>
-      )}
-    </>
+    <AuthContext.Provider value={{ isLoggedIn, login: loginUser, logout }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
