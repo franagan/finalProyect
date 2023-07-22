@@ -2,49 +2,95 @@ import React, { useState } from "react";
 
 const Register = () => {
   const [formUser, setFormUser] = useState({
-    username: "",
+    name: "",
+    lastname: "",
     email: "",
     password: "",
     confirmPassword: "",
+    phone: "",
   });
 
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleInput = (ev) => {
     const { id, value } = ev.target;
     setFormUser({ ...formUser, [id]: value });
     setError("");
+    setSuccessMessage("");
   };
 
-  const onSubmit = async (ev) => {
+  const handleFocus = () => {
+    setSuccessMessage("");
+  };
+
+  const registerUser = async () => {
+    try {
+      const { name, lastname, email, password, confirmPassword, phone } = formUser;
+
+      const nameRegex = /^[a-zA-Z]{2,30}$/;
+      if (!nameRegex.test(name)) {
+        setError("El nombre debe tener entre 2 y 30 caracteres y solo puede contener letras.");
+        return;
+      }
+
+      const lastnameRegex = /^[a-zA-Z]{2,30}$/;
+      if (!lastnameRegex.test(lastname)) {
+        setError("El apellido debe tener entre 2 y 30 caracteres y solo puede contener letras.");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        setError("Por favor, ingresa una dirección de correo electrónico válida.");
+        return;
+      }
+
+      const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+      if (!passwordRegex.test(password)) {
+        setError("La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        setError("Las contraseñas no coinciden.");
+        return;
+      }
+
+      setError("");
+      setFormUser({
+        name: "",
+        lastname: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        phone: "",
+      });
+      setSuccessMessage("¡Tu cuenta ha sido creada con éxito!");
+
+      const response = await fetch("https://backfinalproyect.vercel.app/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, lastname, email, password, phone }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data.message);
+      } else {
+        console.log("Registro exitoso");
+      }
+    } catch (error) {
+      console.error("Error durante el registro:", error);
+    }
+  };
+
+  const onSubmit = (ev) => {
     ev.preventDefault();
-    const { username, email, password, confirmPassword } = formUser;
 
-    const usernameRegex = /^[a-zA-Z0-9]{5,20}$/;
-    if (!usernameRegex.test(username)) {
-      setError("El nombre de usuario debe tener entre 5 y 20 caracteres, y solo puede contener letras y números.");
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError("Por favor, ingresa una dirección de correo electrónico válida.");
-      return;
-    }
-
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    if (!passwordRegex.test(password)) {
-      setError("La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden.");
-      return;
-    }
-
-    setError("");
-    setFormUser({ username: "", email: "", password: "", confirmPassword: "" });
+    registerUser();
   };
 
   return (
@@ -65,12 +111,27 @@ const Register = () => {
                 <div className="mb-4">
                   <input
                     type="text"
-                    id="username"
+                    id="name"
                     className="form-control"
-                    placeholder="Nombre de usuario"
-                    value={formUser.username}
+                    placeholder="Nombre"
+                    value={formUser.name}
                     onChange={handleInput}
+                    onFocus={handleFocus}
                   />
+
+                </div>
+
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    id="lastname"
+                    className="form-control"
+                    placeholder="Apellido"
+                    value={formUser.lastname}
+                    onChange={handleInput}
+                    onFocus={handleFocus}
+                  />
+
                 </div>
 
                 <div className="mb-4">
@@ -81,7 +142,22 @@ const Register = () => {
                     placeholder="Correo electrónico"
                     value={formUser.email}
                     onChange={handleInput}
+                    onFocus={handleFocus}
                   />
+
+                </div>
+
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    id="phone"
+                    className="form-control"
+                    placeholder="Teléfono"
+                    value={formUser.phone}
+                    onChange={handleInput}
+                    onFocus={handleFocus}
+                  />
+
                 </div>
 
                 <div className="mb-4">
@@ -92,7 +168,9 @@ const Register = () => {
                     placeholder="Contraseña"
                     value={formUser.password}
                     onChange={handleInput}
+                    onFocus={handleFocus}
                   />
+
                 </div>
 
                 <div className="mb-4">
@@ -103,11 +181,21 @@ const Register = () => {
                     placeholder="Confirmar contraseña"
                     value={formUser.confirmPassword}
                     onChange={handleInput}
+                    onFocus={handleFocus}
                   />
                 </div>
-
-                {error && <div style={{ color: "red" }}>{error}</div>}
-
+                <div>
+                  {error && (
+                    <div className="alert alert-danger" role="alert">
+                      {error}
+                    </div>
+                  )}
+                  {successMessage && (
+                    <div className="alert alert-success" role="alert">
+                      {successMessage}
+                    </div>
+                  )}
+                </div>
                 <button type="submit" className="btn btn-primary btn-block mb-4">
                   Registrarse
                 </button>
