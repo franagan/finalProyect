@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Comercio.css";
 
-const Comercio2 = () => {
+const Comercio4 = () => {
   const [storeData, setStoreData] = useState([]);
   const [products, setProducts] = useState([]);
 
@@ -12,7 +12,7 @@ const Comercio2 = () => {
         const response = await axios.get(
           "https://backfinalproyect.vercel.app/store/stores"
         );
-        setStoreData(response.data[1]);
+        setStoreData(response.data[3]);
       } catch (error) {
         console.error("Error fetching store data:", error);
       }
@@ -87,7 +87,7 @@ const Comercio2 = () => {
             <img
               src={storeData.image}
               className="foto"
-              alt="imagen del Comercio2"
+              alt="imagen del Comercio4"
             />
             <h2>{storeData.name}</h2>
             <h4>{storeData.description}</h4>
@@ -179,4 +179,4 @@ const Comercio2 = () => {
   );
 };
 
-export default Comercio2;
+export default Comercio4;
