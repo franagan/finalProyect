@@ -1,35 +1,117 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./componentes/Navbar/Navbar";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
-
-const Home = lazy(() => import("./pages/Home/Home"));
-const Comercios = lazy(() => import("./pages/Comercios/Comercios"));
-const Comercio1 = lazy(() => import("./pages/Comercios/Comercio1"));
-const Comercio2 = lazy(() => import("./pages/Comercios/Comercio2"));
-const Login = lazy(() => import("./pages/Login/Login"));
-const Register = lazy(() => import("./pages/Register/Register"));
-const About = lazy(() => import("./pages/About/About"));
-
-const App = () => {
+export const Navbar = () => {
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Suspense fallback={<div>Cargando página...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/comercios" element={<Comercios />} />
-            <Route path="/comercio1" element={<Comercio1 />} />
-            <Route path="/comercio2" element={<Comercio2 />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </Suspense>
-      </div>
-    </Router>
+    <div className="navbar-container">
+      <ul className="nav nav-tabs navbar-custom">
+        <li className="nav-item">
+          <NavLink exact activeClassName="active" className="nav-link" to="/">
+            Inicio
+          </NavLink>
+        </li>
+        <li className="nav-item dropdown">
+          <NavLink
+            exact
+            activeClassName="active"
+            className="nav-link dropdown-toggle"
+            to="/comercios"
+            role="button"
+            aria-expanded="false"
+          >
+            Comercios
+          </NavLink>
+          <ul className="dropdown-menu">
+            <li>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="comercios"
+              >
+                Comercios
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="comercio1"
+              >
+                Comercio 1
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="comercio2"
+              >
+                Comercio 2
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="comercio3"
+              >
+                Comercio 3
+              </NavLink>
+            </li>
+          </ul>
+        </li>
+        <li className="nav-item dropdown">
+          <NavLink
+            exact
+            activeClassName="active"
+            className="nav-link dropdown-toggle"
+            to="/login"
+            role="button"
+            aria-expanded="false"
+          >
+            Login
+          </NavLink>
+          <ul className="dropdown-menu">
+            <li>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="login"
+              >
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="register"
+              >
+                Register
+              </NavLink>
+            </li>
+          </ul>
+        </li>
+        <li className="nav-item">
+          <NavLink
+            exact
+            activeClassName="active"
+            className="nav-link"
+            to="/about"
+          >
+            About Us
+          </NavLink>
+        </li>
+      </ul>
+    </div>
   );
 };
 
-export default App;
+export default Navbar;
