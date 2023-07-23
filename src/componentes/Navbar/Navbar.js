@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const { isLoggedIn, logout } = useAuth();
+
   return (
     <div className="navbar-container">
       <ul className="nav nav-tabs navbar-custom">
@@ -66,38 +69,61 @@ export const Navbar = () => {
           </ul>
         </li>
         <li className="nav-item dropdown">
-          <NavLink
-            exact
-            activeClassName="active"
-            className="nav-link dropdown-toggle"
-            to="/login"
-            role="button"
-            aria-expanded="false"
-          >
-            Login
-          </NavLink>
-          <ul className="dropdown-menu">
-            <li>
+          {isLoggedIn ? (
+            <>
+              <NavLink
+                className="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+              >
+                Logout
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink className="dropdown-item" to="/" onClick={logout}>
+                    Logout
+                  </NavLink>
+                </li>
+              </ul>
+            </>
+          ) : (
+            <>
               <NavLink
                 exact
                 activeClassName="active"
-                className="dropdown-item"
-                to="login"
+                className="nav-link dropdown-toggle"
+                to="/login"
+                role="button"
+                aria-expanded="false"
               >
                 Login
               </NavLink>
-            </li>
-            <li>
-              <NavLink
-                exact
-                activeClassName="active"
-                className="dropdown-item"
-                to="register"
-              >
-                Register
-              </NavLink>
-            </li>
-          </ul>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="dropdown-item"
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="dropdown-item"
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </ul>
+            </>
+          )}
         </li>
         <li className="nav-item">
           <NavLink
