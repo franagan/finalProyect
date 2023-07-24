@@ -31,9 +31,9 @@ export const Navbar = () => {
                 exact
                 activeClassName="active"
                 className="dropdown-item"
-                to="comercios"
+                to="zapaterias"
               >
-                Comercios
+                Zapaterias
               </NavLink>
             </li>
             <li>
@@ -41,9 +41,9 @@ export const Navbar = () => {
                 exact
                 activeClassName="active"
                 className="dropdown-item"
-                to="comercio1"
+                to="floristerias"
               >
-                Comercio 1
+                Floristerias
               </NavLink>
             </li>
             <li>
@@ -51,21 +51,12 @@ export const Navbar = () => {
                 exact
                 activeClassName="active"
                 className="dropdown-item"
-                to="comercio2"
+                to="fruterias"
               >
-                Comercio 2
+                Fruterias
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                exact
-                activeClassName="active"
-                className="dropdown-item"
-                to="comercio3"
-              >
-                Comercio 3
-              </NavLink>
-            </li>
+            
           </ul>
         </li>
         <li className="nav-item dropdown">

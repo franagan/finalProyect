@@ -1,57 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import "./Comercio.css";
 
 const Comercio1 = () => {
-  const [storeData, setStoreData] = useState([null]);
+  const { storeId } = useParams();
+  const [storeData, setStoreData] = useState(null);
   const [products, setProducts] = useState([]);
+  const [formData, setFormData] = useState({
+    email: "",
+    comment: "",
+  });
+  const [mensajeEnviado, setMensajeEnviado] = useState(false);
 
   useEffect(() => {
     const getStoreData = async () => {
       try {
         const response = await axios.get(
-          "https://backfinalproyect.vercel.app/store/stores"
+          `https://backfinalproyect.vercel.app/store/${storeId}`
         );
-        setStoreData(response.data[0]);
+        setStoreData(response.data);
+        setProducts(response.data.products);
       } catch (error) {
         console.error("Error fetching store data:", error);
       }
     };
 
     getStoreData();
-  }, []);
-
-
-  useEffect(() => {
-    const getProducts = async () => {
-      if (storeData && storeData.id) {
-        try {
-          const response = await axios.get(
-            `https://backfinalproyect.vercel.app/store/products/${storeData.id}`
-          );
-          setProducts(response.data);
-        } catch (error) {
-          console.error("Error al obtener los productos:", error);
-        }
-      } else {
-        console.error("No hay datos de comercio válidos o el id de comercio no está disponible.");
-      }
-    };
-
-    getProducts();
-  }, [storeData]);
+  }, [storeId]);
 
   const addToCart = (product) => {
     console.log(`Añadir ${product.name} al carrito`);
   };
-
-
-  const [formData, setFormData] = useState({
-    email: "",
-    comment: "",
-  });
-
-  const [mensajeEnviado, setMensajeEnviado] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,62 +60,60 @@ const Comercio1 = () => {
 
   return (
     <div>
-      {storeData && (
-        <div>
-          <header className="inicioContainer">
-            <img
-              src={storeData.image}
-              className="foto"
-              alt="imagen del comercio1"
-            />
-            <h2>{storeData.name}</h2>
-            <h4>{storeData.description}</h4>
-            <p>Dirección: {storeData.direction}</p>
-            <p>Teléfono: {storeData.phone}</p>
-            <p>Localidad: {storeData.province}</p>
-            <p>Provincia: {storeData.city}</p>
-            <p>Página web: {storeData.web}</p>
-            <p>E-mail: {storeData.mail}</p>
-            <p>Categoría: {storeData.category}</p>
-          </header>
+      <div>
+        {storeData && (
+          <div>
+            <header className="inicioContainer">
+              <img
+                src={storeData.image}
+                className="foto"
+                alt="imagen del comercio1"
+              />
+              <h2>{storeData.name}</h2>
+              <h4>{storeData.description}</h4>
+              <p>Dirección: {storeData.direction}</p>
+              <p>Teléfono: {storeData.phone}</p>
+              <p>Localidad: {storeData.province}</p>
+              <p>Provincia: {storeData.city}</p>
+              <p>Página web: {storeData.web}</p>
+              <p>E-mail: {storeData.mail}</p>
+              <p>Categoría: {storeData.category}</p>
+            </header>
+          </div>
+        )}
+
+        <h4>Productos disponibles</h4>
+        <div className="cardContainer">
+          {products.map((product) => (
+            <div key={product.name} className="card">
+              <img
+                src={product.image}
+                alt={product.name}
+                style={{ width: "150px" }}
+              />
+              <h4>{product.name}</h4>
+              <p>Precio: {product.price}</p>
+              <button
+                onClick={() => addToCart(product)}
+                className="btn btn-success"
+              >
+                Añadir
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-cart"
+                  viewBox="0 0 16 16"
+                  style={{ marginLeft: "5px" }}
+                >
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+              </button>
+            </div>
+          ))}
         </div>
-      )}
-
-      <h4>Productos disponibles</h4>
-      <div className="cardContainer">
-  {products.map((product) => (
-    <div key={product.id} className="card">
-      <img
-        src={product.image}
-        alt={product.name}
-        style={{ width: "150px" }}
-      />
-      <h4>{product.name}</h4>
-      <p>Precio: {product.price}</p>
-      <button
-        onClick={() => addToCart(product)}
-        className="btn btn-success"
-      >
-        Añadir
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-cart"
-          viewBox="0 0 16 16"
-          style={{ marginLeft: "5px" }}
-        >
-            <path
-                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                />
-        </svg>
-      </button>
-    </div>
-  ))}
-</div>
-
-
+      </div>
 
       <div className="inputbox">
         <h4>Formulario de contacto</h4>
