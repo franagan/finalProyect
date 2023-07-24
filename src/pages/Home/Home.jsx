@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Home.css";
+import Carrousel from './Carrousel';
+
 
 
 const Store = () => {
@@ -14,27 +16,7 @@ const Store = () => {
         setCharacters(response.data);
         console.log(response.data);
     };
-    // const renderList = (e) => {
-    //     return characters.map((character) => {
-    //         console.log(character.name);
-            
-    //         return (
-    //             <ul>
-    //                 <li className="liMovies" key={character._id}>
-    //                     <h3> {character.title}</h3>
-    //                     <Link to={'/movies/' + character._id}>
-    //                         <img
-    //                             className="imgMovie"
-    //                             src={character.image}
-    //                             alt={character.title}
-    //                         />
-    //                     </Link>
-    //                 </li>
-    //             </ul>
-    //         );
-    //     });
-    // };
-
+  
     useEffect(() => {
         getDataStore();
     }, []);
@@ -43,6 +25,7 @@ const Store = () => {
         const[query, setQuery]= useState("");
   return (
     <div>
+
       <header className="inicioContainer">
         <h1>Bienvenido a nuestra página de Tiendas Online</h1>
         <p>
@@ -52,14 +35,15 @@ const Store = () => {
       </header>
 
 
+      <Carrousel data={characters}/>
+     
+
       <div className="inputbox">
         <input required="required" type="text" onChange={e=> setQuery(e.target.value)}/>
         <span>Busca tu tienda</span>
         <i></i>
       </div>
 
-      {/* HAY QUE CAMBIAR LAS RUTAS A LOS NOMBRES */}
-      
          
       <div className="cardContainer" >
 

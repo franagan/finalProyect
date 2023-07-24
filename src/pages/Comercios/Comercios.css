@@ -1,9 +1,10 @@
 .inicioContainer {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 35vh;
   background-color: #f9f9f9;
   opacity: 0;
   animation: fadeIn 1s forwards;
