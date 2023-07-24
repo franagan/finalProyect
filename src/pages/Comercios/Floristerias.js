@@ -5,7 +5,7 @@ import "./Comercio.css";
 
 const Floristerias = () => {
   const [stores, setStores] = useState([]);
-  const [setQuery] = useState("");
+  const [query, setQuery] = useState("");
 
   const getDataStore = async () => {
     const response = await axios.get(

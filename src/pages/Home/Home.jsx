@@ -5,13 +5,13 @@ import "./Home.css";
 
 
 const Store = () => {
-    const [store, setstore] = useState([]);
+    const [store, setStore] = useState([]);
    
     const getDataStore = async () => {
         const response = await axios.get(
             'https://backfinalproyect.vercel.app/store/stores'
         );
-        setstore(response.data);
+        setStore(response.data);
         console.log(response.data);
     };
     

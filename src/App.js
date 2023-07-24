@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AuthProvider from "./Context/AuthProvider";
+import AuthProvider, { useAuth } from "./Context/AuthProvider";
 import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
 import Navbar from "./componentes/Navbar/Navbar";
 
