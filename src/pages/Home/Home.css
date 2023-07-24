@@ -1,9 +1,13 @@
+
+/* //////////// Estilos generales ///////////////////////// */
+
+
 .inicioContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
   background-color: #f9f9f9;
   opacity: 0;
   animation: fadeIn 1s forwards;
@@ -26,6 +30,8 @@
 }
 
 
+/* ///////////////////Estilos Tarjeta /////////////////////////////////// */
+
 .cardContainer {
   display: flex;
   justify-content: center;
@@ -47,6 +53,7 @@
   margin: 60px;
   opacity: 0;
   animation: fadeInCard 3s forwards;
+  width:18rem;
 }
 
 @keyframes fadeInCard {
@@ -54,4 +61,67 @@
     opacity: 1;
   }
 }
+
+/* //////////// Estilos del INPUT //////////////////// */
+
+.inputbox {
+  position: relative;
+  width: 25rem;
+  margin: auto;
+  display:block;
+}
+
+.inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 20px 10px 10px;
+  font-size: 1.2em;
+  color: #3f2e3e;
+  letter-spacing: 00.05em;
+  transition: 0.5s;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+.inputbox input:valid ~span,
+.inputbox input:focus ~span {
+  color: #3f2e3e;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0.9em;
+  
+}
+
+.inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #45CFDD;
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~i,
+.inputbox input:focus ~i {
+  height: 44px;
+}
+
 

@@ -1,0 +1,82 @@
+
+.foto{
+    display: flex;
+    justify-content: center;
+    margin: 5px auto 5px;
+    height:300px;
+   }
+
+.inicioContainer{
+   background-color: #f0efef;
+    margin: 5px auto 5px;
+    padding: 20px;
+    max-width: 980px;
+    border-radius: 4px;
+}
+
+h1,h2,h3,h4,p{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: slideIn 3s forwards;
+  }
+
+  @keyframes slideIn {
+    to {
+      opacity: 6;
+      transform: translateY(0);
+    }
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    padding: 10px;
+    opacity: 0;
+    animation: fadeInCard 3s forwards;
+    width:18rem;
+  }
+
+  @keyframes fadeInCard {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .inputbox {
+    display: block;
+    max-width: 980px;
+    margin: auto;
+    padding: 20px;
+    background-color: #e8e7e7;
+
+  }
+  .form-floating{
+    position: relative;
+    width: 25rem;
+    margin: auto;
+    display:block;
+  }
+  .btn{
+    position: relative;
+    margin: auto;
+    display:block;
+  }
+
+  .mensaje-enviado {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+  }
