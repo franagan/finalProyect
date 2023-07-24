@@ -1,0 +1,18 @@
+.test{
+    background-color: #353235;
+}
+/* #353235; */
+
+.social-logo{
+    width:20px;
+    padding-left: 5px;
+}
+.social-logo-big{
+    width:35px;
+    padding-bottom: 10px;
+    
+}
+.social-name{
+    text-decoration: none;
+    color:whitesmoke;
+}

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../Context/AuthProvider";
 import "./Navbar.css";
 
@@ -9,58 +10,121 @@ export const Navbar = () => {
     <div className="navbar-container">
       <ul className="nav nav-tabs navbar-custom">
         <li className="nav-item">
-          <Link className="nav-link" to="/">
-            Inicio</Link>
+          <NavLink exact activeClassName="active" className="nav-link" to="/">
+            Inicio
+          </NavLink>
         </li>
         <li className="nav-item dropdown">
-          <Link
-            className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Comercios</Link>
+          <NavLink
+            exact
+            activeClassName="active"
+            className="nav-link dropdown-toggle"
+            to="/comercios"
+            role="button"
+            aria-expanded="false"
+          >
+            Comercios
+          </NavLink>
           <ul className="dropdown-menu">
             <li>
-              <Link className="dropdown-item" to="comercios">Comercios</Link>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="zapaterias"
+              >
+                Zapaterias
+              </NavLink>
             </li>
             <li>
-              <Link className="dropdown-item" to="comercio1">Comercio 1</Link>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="floristerias"
+              >
+                Floristerias
+              </NavLink>
             </li>
             <li>
-              <Link className="dropdown-item" to="comercio2">Comercio 2</Link>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="dropdown-item"
+                to="fruterias"
+              >
+                Fruterias
+              </NavLink>
             </li>
+            
           </ul>
         </li>
         <li className="nav-item dropdown">
-        {isLoggedIn ? (
+          {isLoggedIn ? (
             <>
-              <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+              >
                 Logout
-              </Link>
+              </NavLink>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/" onClick={logout}>
+                  <NavLink className="dropdown-item" to="/" onClick={logout}>
                     Logout
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </>
           ) : (
-            <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-              Login
-            </Link>
-          )}
-          <ul className="dropdown-menu">
-            <li>
-              <Link className="dropdown-item" to="login">
+            <>
+              <NavLink
+                exact
+                activeClassName="active"
+                className="nav-link dropdown-toggle"
+                to="/login"
+                role="button"
+                aria-expanded="false"
+              >
                 Login
-              </Link>
-            </li>
-            <li>
-              <Link className="dropdown-item" to="register">
-                Register
-              </Link>
-            </li>
-          </ul>
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="dropdown-item"
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="dropdown-item"
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </ul>
+            </>
+          )}
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="about">About Us</Link>
+          <NavLink
+            exact
+            activeClassName="active"
+            className="nav-link"
+            to="/about"
+          >
+            About Us
+          </NavLink>
         </li>
       </ul>
     </div>
