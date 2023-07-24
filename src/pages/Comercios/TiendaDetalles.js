@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./Comercio.css";
 
-const Comercio1 = () => {
+const TiendaDetalles = () => {
   const { storeId } = useParams();
   const [storeData, setStoreData] = useState(null);
   const [products, setProducts] = useState([]);
@@ -156,4 +156,4 @@ const Comercio1 = () => {
   );
 };
 
-export default Comercio1;
+export default TiendaDetalles;

@@ -8,7 +8,7 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Zapaterias = lazy(() => import("./pages/Comercios/Zapaterias"));
 const Fruterias = lazy(() => import("./pages/Comercios/Fruterias"));
 const Floristerias = lazy(() => import("./pages/Comercios/Floristerias"));
-const Comercio1 = lazy(() => import("./pages/Comercios/Comercio1"));
+const TiendaDetalles = lazy(() => import("./pages/Comercios/TiendaDetalles"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const About = lazy(() => import("./pages/About/About"));
@@ -26,10 +26,10 @@ const App = () => {
               <Route path="/fruterias" element={<Fruterias />} />
               <Route path="/floristerias" element={<Floristerias />} />
               <Route
-                path="/comercio/:storeId"
+                path="/tienda/:storeId"
                 element={
                   
-                    <Comercio1 />
+                    <TiendaDetalles />
                   
                 }
               />

@@ -14,32 +14,12 @@ const Store = () => {
         setstore(response.data);
         console.log(response.data);
     };
-    // const renderList = (e) => {
-    //     return store.map((character) => {
-    //         console.log(character.name);
-            
-    //         return (
-    //             <ul>
-    //                 <li className="liMovies" key={character._id}>
-    //                     <h3> {character.title}</h3>
-    //                     <Link to={'/movies/' + character._id}>
-    //                         <img
-    //                             className="imgMovie"
-    //                             src={character.image}
-    //                             alt={character.title}
-    //                         />
-    //                     </Link>
-    //                 </li>
-    //             </ul>
-    //         );
-    //     });
-    // };
-
+    
     useEffect(() => {
         getDataStore();
     }, []);
 
-    
+  
         const[query, setQuery]= useState("");
   return (
     <div>
@@ -61,8 +41,6 @@ const Store = () => {
         <i></i>
       </div>
 
-      {/* HAY QUE CAMBIAR LAS RUTAS A LOS NOMBRES */}
-
       <div className="cardContainer">
         {store
           .filter((store) => store.name.toLowerCase().includes(query))
@@ -78,24 +56,17 @@ const Store = () => {
                 <p className="card-text">{store.description}</p>
                 <NavLink
                   className="btn btn-primary"
-                  to={`/comercio/${store._id}`}
+                  to={`/tienda/${store._id}`}
                 >
                   Comprar
                 </NavLink>
               </div>
             </div>
           ))}
-        ;
       </div>
     </div>
   );
 };
 
-
-        // <>
-        //     <h2>Movies </h2>
-            
-        //     <ul className="listMovies">{renderList()}</ul>
-        // </>
    
 export default Store;

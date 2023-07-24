@@ -56,7 +56,7 @@ const Zapaterias = () => {
               <div className="card-body">
                 <h5 className="card-title">{store.name}</h5>
                 <p className="card-text">{store.description}</p>
-                <NavLink className="btn btn-primary" to={`/comercio/${store._id}`}>
+                <NavLink className="btn btn-primary" to={`/tienda/${store._id}`}>
                   Comprar
                 </NavLink>
               </div>
