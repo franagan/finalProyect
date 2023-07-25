@@ -86,7 +86,7 @@ h1,h2,h3,h4,p{
   .shopping {
     background-color: #6f6f6f;
     color: #ffffff;
-    width: 30%;
+    width: 100%;
     border-radius: 5px;
     padding: 10px;
   }
@@ -119,4 +119,19 @@ h1,h2,h3,h4,p{
   .total {
     font-weight: bold;
     margin: 10px;
+  }
+  .sticky-button-container {
+    position: sticky;
+    bottom: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #ebebeba8;
+    
+  }
+
+  .shopping-button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
