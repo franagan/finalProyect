@@ -27,13 +27,8 @@ const App = () => {
               <Route path="/floristerias" element={<Floristerias />} />
               <Route
                 path="/tienda/:storeId"
-                element={
-                  <ProtectedRoute>
-                    <TiendaDetalles />
-                  </ProtectedRoute>
-                }
+                element={<ProtectedRoute element={<TiendaDetalles />} />}
               />
-
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
