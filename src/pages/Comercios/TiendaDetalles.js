@@ -71,14 +71,15 @@ const TiendaDetalles = () => {
       <div>
         {storeData && (
           <div>
-            <header className="inicioContainer">
+            <header className="inicio">
               <img
                 src={storeData.image}
-                className="foto"
+                className="img-thumbnail"
                 alt="imagen del comercio1"
+                style={{ width:"50%"}}
               />
-              <h2>{storeData.name}</h2>
-              <h4>{storeData.description}</h4>
+              <h1>{storeData.name}</h1>
+              <h3>{storeData.description}</h3>
               <p>Dirección: {storeData.direction}</p>
               <p>Teléfono: {storeData.phone}</p>
               <p>Localidad: {storeData.province}</p>
@@ -90,14 +91,15 @@ const TiendaDetalles = () => {
           </div>
         )}
 
-        <h4>Productos disponibles</h4>
-        <div className="cardContainer">
+
+        <div className="cardContainer1">
           {products.map((product) => (
             <div key={product._id} className="card">
               <img
                 src={product.image}
+                className="img-thumbnail"
                 alt={product.name}
-                style={{ width: "150px" }}
+                style={{ width:"150px"}}
               />
               <h4>{product.name}</h4>
               <div>
@@ -147,7 +149,7 @@ const TiendaDetalles = () => {
         </div>
       </div>
 
-      <div className="inputbox">
+      <div className="inputboxTienda">
         <h4>Formulario de contacto</h4>
         <p>(contacta directamente con la tienda)</p>
         <form onSubmit={handleSubmit}>

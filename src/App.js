@@ -19,7 +19,6 @@ const Carrito = lazy(() => import("./componentes/Carrito/Carrito"));
 
 const App = () => {
   return (
-    <>
     <Router>
       <AuthProvider>
         <CartProvider>
@@ -45,7 +44,6 @@ const App = () => {
         </CartProvider>
       </AuthProvider>
     </Router>
-      </>
   );
 };
 
