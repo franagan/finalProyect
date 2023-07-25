@@ -6,7 +6,7 @@ import "./Home.css";
 
 const Store = () => {
     const [store, setStore] = useState([]);
-   
+
     const getDataStore = async () => {
         const response = await axios.get(
             'https://backfinalproyect.vercel.app/store/stores'
@@ -14,12 +14,12 @@ const Store = () => {
         setStore(response.data);
         console.log(response.data);
     };
-    
+
     useEffect(() => {
         getDataStore();
     }, []);
 
-  
+
         const[query, setQuery]= useState("");
   return (
     <div>
@@ -68,5 +68,5 @@ const Store = () => {
   );
 };
 
-   
+
 export default Store;

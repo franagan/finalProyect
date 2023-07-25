@@ -12,6 +12,7 @@ const TiendaDetalles = lazy(() => import("./pages/Comercios/TiendaDetalles"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const About = lazy(() => import("./pages/About/About"));
+const Carrito = lazy(() => import("./pages/Carrito/Carrito"));
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
+              <Route path="/carrito" element={<Carrito />} />
             </Routes>
           </Suspense>
         </div>
