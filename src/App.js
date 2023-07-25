@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider, { useAuth } from "./Context/AuthProvider";
-import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
+//import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
 import Navbar from "./componentes/Navbar/Navbar";
 
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -12,6 +12,7 @@ const TiendaDetalles = lazy(() => import("./pages/Comercios/TiendaDetalles"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const About = lazy(() => import("./pages/About/About"));
+const Carrito = lazy(() => import("./pages/Carrito/Carrito"));
 
 const App = () => {
   return (
@@ -28,15 +29,16 @@ const App = () => {
               <Route
                 path="/tienda/:storeId"
                 element={
-                  <ProtectedRoute>
+
                     <TiendaDetalles />
-                  </ProtectedRoute>
+
                 }
               />
 
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
+              <Route path="/carrito" element={<Carrito />} />
             </Routes>
           </Suspense>
         </div>

@@ -80,3 +80,43 @@ h1,h2,h3,h4,p{
     border-radius: 4px;
     text-align: center;
   }
+
+
+
+  .shopping {
+    background-color: #6f6f6f;
+    color: #ffffff;
+    width: 30%;
+    border-radius: 5px;
+    padding: 10px;
+  }
+ 
+  .shopping ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+  }
+
+  .shopping li {
+    background-color: #ffffffba;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+  }
+
+
+  .shopping li .count {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 10px;
+  }
+
+  .total {
+    font-weight: bold;
+    margin: 10px;
+  }
