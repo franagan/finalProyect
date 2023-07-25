@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 import "./Comercio.css";
 import { useCart } from "../../Context/CartContext";
 
 const TiendaDetalles = () => {
   const { storeId } = useParams();
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
   const [storeData, setStoreData] = useState(null);
   const [products, setProducts] = useState([]);
   const [formData, setFormData] = useState({
