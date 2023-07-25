@@ -4,6 +4,7 @@ import AuthProvider, { useAuth } from "./Context/AuthProvider";
 import {CartProvider} from "./Context/CartContext";
 import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
 import Navbar from "./componentes/Navbar/Navbar";
+import Footer from "./componentes/Footer/Footer"
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Zapaterias = lazy(() => import("./pages/Comercios/Zapaterias"));
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="/tienda" element={<Carrito />} />
             </Routes>
           </Suspense>
+          <Footer/>
         </CartProvider>
       </AuthProvider>
     </Router>
