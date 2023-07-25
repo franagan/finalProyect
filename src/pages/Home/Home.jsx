@@ -1,19 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import "./Home.css";
 import Carrousel from './Carrousel';
 
 
 
 const Store = () => {
-    const [characters, setCharacters] = useState([]);
+    const [store, setStore] = useState([]);
    
     const getDataStore = async () => {
         const response = await axios.get(
             'https://backfinalproyect.vercel.app/store/stores'
         );
-        setCharacters(response.data);
+        setStore(response.data);
         console.log(response.data);
     };
   
@@ -35,7 +35,7 @@ const Store = () => {
       </header>
 
 
-      <Carrousel data={characters}/>
+      <Carrousel data={store}/>
      
 
       <div className="inputbox">
@@ -45,27 +45,27 @@ const Store = () => {
       </div>
 
          
-      <div className="cardContainer" >
-
-          {characters.filter((character)=>character.name.toLowerCase().includes(query)).map((character) => ( 
-            
-            <div key={character.id} className="card">
-            <img
-            src={character.image}
-            className="card-img-top"
-            alt="imagen del comercio1"
-            />
-          <div className="card-body" >
-            <h5 className="card-title">{character.name}</h5>
-            <p className="card-text">
-              {character.description}
-            </p>
-            <Link className="btn btn-primary" to={'/comercio'+character.name}>     
-              Comprar
-            </Link>
-          </div>
-        </div>
-            ))};
+      <div className="cardContainer">
+        {store
+          .filter((store) => store.name.toLowerCase().includes(query))
+          .map((store) => (
+            <div key={store.id} className="card">
+              <img
+                src={store.image}
+                className="card-img-top"
+                alt="imagen del comercio1"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{store.name}</h5>
+                <p className="card-text">{store.description}</p>
+                <NavLink
+                  className="btn btn-primary"
+                  to={`/tienda/${store._id}`}>
+                  Comprar
+                </NavLink>
+              </div>
+            </div>
+            ))}
          
       </div>
     </div>
@@ -73,10 +73,5 @@ const Store = () => {
 };
 
 
-        // <>
-        //     <h2>Movies </h2>
-            
-        //     <ul className="listMovies">{renderList()}</ul>
-        // </>
    
 export default Store;
