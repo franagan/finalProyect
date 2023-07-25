@@ -2,11 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import "./Home.css";
+import Carrousel from './Carrousel';
+
 
 
 const Store = () => {
     const [store, setStore] = useState([]);
 
+   
     const getDataStore = async () => {
         const response = await axios.get(
             'https://backfinalproyect.vercel.app/store/stores'
@@ -15,6 +18,7 @@ const Store = () => {
         console.log(response.data);
     };
 
+  
     useEffect(() => {
         getDataStore();
     }, []);
@@ -31,16 +35,17 @@ const Store = () => {
         </p>
       </header>
 
+
+      <Carrousel data={store}/>
+     
+
       <div className="inputbox">
-        <input
-          required="required"
-          type="text"
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <input required="required" type="text" onChange={e=> setQuery(e.target.value)}/>
         <span>Busca tu tienda</span>
         <i></i>
       </div>
 
+         
       <div className="cardContainer">
         {store
           .filter((store) => store.name.toLowerCase().includes(query))
@@ -56,8 +61,7 @@ const Store = () => {
                 <p className="card-text">{store.description}</p>
                 <NavLink
                   className="btn btn-primary"
-                  to={`/tienda/${store._id}`}
-                >
+                  to={`/tienda/${store._id}`}>
                   Comprar
                 </NavLink>
               </div>
@@ -69,4 +73,5 @@ const Store = () => {
 };
 
 
+   
 export default Store;
