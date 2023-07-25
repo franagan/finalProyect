@@ -64,6 +64,7 @@ export const Navbar = () => {
                 Fruterias
               </NavLink>
             </li>
+
           </ul>
         </li>
         <li className="nav-item dropdown">
