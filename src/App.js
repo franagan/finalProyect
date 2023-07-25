@@ -1,7 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider, { useAuth } from "./Context/AuthProvider";
-//import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
+import {CartProvider} from "./Context/CartContext";
+import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
 import Navbar from "./componentes/Navbar/Navbar";
 
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -12,13 +13,13 @@ const TiendaDetalles = lazy(() => import("./pages/Comercios/TiendaDetalles"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const About = lazy(() => import("./pages/About/About"));
-const Carrito = lazy(() => import("./pages/Carrito/Carrito"));
+const Carrito = lazy(() => import("./componentes/Carrito/Carrito"));
 
 const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <div>
+        <CartProvider>
           <Navbar />
           <Suspense fallback={<div>Cargando página...</div>}>
             <Routes>
@@ -28,20 +29,15 @@ const App = () => {
               <Route path="/floristerias" element={<Floristerias />} />
               <Route
                 path="/tienda/:storeId"
-                element={
-
-                    <TiendaDetalles />
-
-                }
-              />
-
+                element={<ProtectedRoute element={<TiendaDetalles />} />}
+                />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
               <Route path="/carrito" element={<Carrito />} />
             </Routes>
           </Suspense>
-        </div>
+        </CartProvider>
       </AuthProvider>
     </Router>
   );

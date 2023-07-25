@@ -1,7 +1,6 @@
 import React from "react";
-import AuthProvider, { useAuth } from "../../Context/AuthProvider";
-import { BrowserRouter as  Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
 
 const ProtectedRoute = ({ element, ...rest }) => {
   const { isLoggedIn } = useAuth();
@@ -10,7 +9,7 @@ const ProtectedRoute = ({ element, ...rest }) => {
     return <Navigate to="/login" />;
   }
 
-  return <Route {...rest} element={element} />;
+  return element;
 };
 
 export default ProtectedRoute;
