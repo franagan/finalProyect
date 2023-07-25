@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider, { useAuth } from "./Context/AuthProvider";
 import {CartProvider} from "./Context/CartContext";
 import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
+import Header from "./componentes/Header/Header";
 import Navbar from "./componentes/Navbar/Navbar";
 import Footer from "./componentes/Footer/Footer"
 
@@ -21,6 +22,7 @@ const App = () => {
     <Router>
       <AuthProvider>
         <CartProvider>
+          <Header />
           <Navbar />
           <Suspense fallback={<div>Cargando página...</div>}>
             <Routes>
