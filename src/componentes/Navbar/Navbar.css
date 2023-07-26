@@ -20,7 +20,7 @@
     border-color 0.15s ease-in-out;
 }
 
-/* Estilos para el menú desplegable */
+
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -43,4 +43,29 @@
 
 .dropdown-item:hover {
   background-color: #f1f1f1;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #3c6a6f;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-custom {
+    display: none;
+  }
+
+  .navbar-custom.open {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -103,7 +103,7 @@ const AuthProvider = ({ children }) => {
   };
 
   if (loading) {
-    return <div>Iniciando sesión...</div>;
+    return <div>Cargando página...</div>;
   }
 
   return (

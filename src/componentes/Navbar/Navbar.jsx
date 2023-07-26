@@ -1,21 +1,24 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../Context/AuthProvider';
-import './Navbar.css';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../../Context/AuthProvider";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { isLoggedIn, logout, currentUser, userId } = useAuth();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="navbar-container">
-      <ul className="nav nav-tabs navbar-custom">
+      <button className="hamburger" onClick={toggleMenu}>
+        &#9776;
+      </button>
+      <ul className={`nav nav-tabs navbar-custom ${isMenuOpen ? "open" : ""}`}>
         <li className="nav-item">
-          <NavLink
-            exact
-            activeClassName="active"
-            className="nav-link"
-            to="/"
-          >
+          <NavLink exact activeClassName="active" className="nav-link" to="/">
             Inicio
           </NavLink>
         </li>
@@ -73,7 +76,7 @@ const Navbar = () => {
                 role="button"
                 aria-expanded="false"
               >
-                {currentUser?.email || ''}
+                {currentUser?.email || ""}
               </NavLink>
               <ul className="dropdown-menu">
                 <li>
@@ -87,11 +90,7 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    className="dropdown-item"
-                    to="/"
-                    onClick={logout}
-                  >
+                  <NavLink className="dropdown-item" to="/" onClick={logout}>
                     Logout
                   </NavLink>
                 </li>

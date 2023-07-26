@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const Profile = () => {
-  const { userId } = useParams(); // Utiliza el hook useParams para obtener el userId
+  const { userId } = useParams();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
