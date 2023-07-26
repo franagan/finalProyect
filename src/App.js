@@ -7,6 +7,7 @@ import Header from "./componentes/Header/Header";
 import Navbar from "./componentes/Navbar/Navbar";
 import Footer from "./componentes/Footer/Footer"
 
+
 const Home = lazy(() => import("./pages/Home/Home"));
 const Zapaterias = lazy(() => import("./pages/Comercios/Zapaterias"));
 const Fruterias = lazy(() => import("./pages/Comercios/Fruterias"));
