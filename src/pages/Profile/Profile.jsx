@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-const Profile = ({ userId }) => {
+const Profile = () => {
+  const { userId } = useParams(); // Utiliza el hook useParams para obtener el userId
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const response = await axios.get(`/https://backfinalproyect.vercel.app/user/${userId}`);
+        const response = await axios.get(`https://backfinalproyect.vercel.app/user/${userId}`);
         setUser(response.data);
       } catch (error) {
         console.error('Error al obtener los datos del usuario:', error);
@@ -27,7 +29,6 @@ const Profile = ({ userId }) => {
       <p>Email: {user.email}</p>
       <p>Nombre: {user.name}</p>
       <p>Apellido: {user.lastname}</p>
-      <p>Dirección: {user.direction}</p>
       <p>Teléfono: {user.phone}</p>
     </div>
   );
