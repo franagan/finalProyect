@@ -28,8 +28,7 @@ const Zapaterias = () => {
       <header className="inicioContainer">
         <h1>Bienvenido a nuestra página de Tiendas Online</h1>
         <p>
-          Baja para explorar una variedad de tiendas en línea donde realizar tus
-          compras
+          Baja para explorar una variedad de tiendas en línea donde realizar tus compras
         </p>
       </header>
 
@@ -38,6 +37,7 @@ const Zapaterias = () => {
           required="required"
           type="text"
           onChange={(e) => setQuery(e.target.value)}
+          value={query}
         />
         <span>Busca tu tienda</span>
         <i></i>
@@ -45,7 +45,7 @@ const Zapaterias = () => {
 
       <div className="cardContainer">
         {stores
-          .filter((store) => store.category === "Zapaterias")
+          .filter((store) => store.category === "Zapaterias" && store.name.toLowerCase().includes(query.toLowerCase()))
           .map((store) => (
             <div key={store._id} className="card">
               <img

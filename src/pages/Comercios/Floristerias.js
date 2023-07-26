@@ -24,8 +24,7 @@ const Floristerias = () => {
       <header className="inicioContainer">
         <h1>Bienvenido a nuestra página de Tiendas Online</h1>
         <p>
-          Baja para explorar una variedad de tiendas en línea donde realizar tus
-          compras
+          Baja para explorar una variedad de tiendas en línea donde realizar tus compras
         </p>
       </header>
 
@@ -41,7 +40,7 @@ const Floristerias = () => {
 
       <div className="cardContainer">
         {stores
-          .filter((store) => store.category === "Floristerias")
+          .filter((store) => store.category === "Floristerias" && store.name.toLowerCase().includes(query.toLowerCase()))
           .map((store) => (
             <div key={store._id} className="card">
               <img
