@@ -153,7 +153,7 @@ const About = () => {
         </div>
       </div>
 
-      <div class="form-area">
+      {/* <div class="form-area">
         <div class="container">
           <div class="row single-form g-0">
             <div class="col-sm-12 col-lg-6">
@@ -207,7 +207,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
     </div>
   );
