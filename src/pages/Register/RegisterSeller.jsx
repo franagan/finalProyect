@@ -14,12 +14,18 @@ const RegisterSeller = () => {
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
     };
+    const [imagen, setImagen] = useState(null);
+
+    const handleImagenChange = (e) => {
+        const selectedImagen = e.target.files[0];
+        setImagen(selectedImagen);
+    };
 
     const result = async (data) => {
         try {
             console.log(data);
             const res = await axios.post(
-                'https://backfinalproyect.vercel.app/store'
+                'https://backfinalproyect.vercel.app/store/'
             );
             console.log(res);
         } catch (error) {
@@ -75,6 +81,12 @@ const RegisterSeller = () => {
                     })}
                 />
                 {errors.province && <p>{errors.province.message} </p>}
+                <label>Imagen:</label>
+                <input
+                    type="file"
+                    name="imagen"
+                    onChange={handleImagenChange}
+                />
                 <label>Descripcion:</label>
                 <input
                     type="text"
