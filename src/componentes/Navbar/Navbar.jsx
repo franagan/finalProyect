@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../Context/AuthProvider";
-import "./Navbar.css";
 import Carrito from "../../componentes/Carrito/Carrito";
 import { useCart } from "../../Context/CartContext";
+import "./Navbar.css";
 
-export const Navbar = () => {
-  const { isLoggedIn, logout } = useAuth();
+const Navbar = () => {
+  const { isLoggedIn, logout, currentUser, userId } = useAuth();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   const [showCart, setShowCart] = useState(false);
   const { cart } = useCart();
 
@@ -14,16 +20,21 @@ export const Navbar = () => {
     setShowCart(!showCart);
   };
 
+
+
   return (
     <div className="navbar-container">
-      <ul className="nav nav-tabs navbar-custom">
+      <button className="hamburger" onClick={toggleMenu}>
+        &#9776;
+      </button>
+      <ul className={`nav nav-tabs navbar-custom ${isMenuOpen ? "open" : ""}`}>
         <li className="nav-item">
           <NavLink exact activeClassName="active" className="nav-link" to="/">
             Inicio
           </NavLink>
         </li>
         <li className="nav-item dropdown">
-          <NavLink
+          <div
             exact
             activeClassName="active"
             className="nav-link dropdown-toggle"
@@ -32,7 +43,7 @@ export const Navbar = () => {
             aria-expanded="false"
           >
             Comercios
-          </NavLink>
+          </div>
           <ul className="dropdown-menu">
             <li>
               <NavLink
@@ -64,11 +75,10 @@ export const Navbar = () => {
                 Fruterias
               </NavLink>
             </li>
-
           </ul>
         </li>
         <li className="nav-item dropdown">
-          {isLoggedIn ? (
+        {isLoggedIn ? (
             <>
               <NavLink
                 className="nav-link dropdown-toggle"
@@ -77,9 +87,19 @@ export const Navbar = () => {
                 role="button"
                 aria-expanded="false"
               >
-                Logout
+                {currentUser?.email || ""}
               </NavLink>
               <ul className="dropdown-menu">
+                <li>
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="dropdown-item"
+                    to={`/profile/${userId}`}
+                  >
+                    Perfil
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink className="dropdown-item" to="/" onClick={logout}>
                     Logout
@@ -120,6 +140,16 @@ export const Navbar = () => {
                     Register
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="dropdown-item"
+                    to="/registerseller"
+                  >
+                    Registrar Vendedor
+                  </NavLink>
+                </li>
               </ul>
             </>
           )}
@@ -134,7 +164,7 @@ export const Navbar = () => {
             About Us
           </NavLink>
         </li>
-
+      
         {isLoggedIn && (
           <li className="nav-item">
             <div className="nav-link" onClick={handleCartClick}>

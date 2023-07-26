@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../Context/AuthProvider";
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login, getUserIdByEmail } = useAuth();
 
   const [formUser, setFormUser] = useState({
     email: "",
@@ -26,11 +26,20 @@ const Login = () => {
       return;
     }
 
+    const userId = getUserIdByEmail(email);
+
+    if (userId) {
+      console.log("El _id del usuario es:", userId);
+    } else {
+      console.log("No se encontró ningún usuario con ese email.");
+    }
+
     const isAuthenticated = await login(email, password);
 
     if (isAuthenticated) {
-      setError("");
-      setFormUser({ email: "", password: "" });
+      // El login fue exitoso, puedes redirigir al usuario a la página deseada
+      // Por ejemplo, utilizando el hook useNavigate de react-router-dom
+      // navigate('/ruta-a-la-pagina-deseada');
     } else {
       setError("Usuario o contraseña incorrectos");
     }
@@ -88,4 +97,3 @@ const Login = () => {
 };
 
 export default Login;
-

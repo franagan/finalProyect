@@ -3,7 +3,7 @@ import './Gpt.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = "sk-Vgr8OyyGQcwS6fEmV27gT3BlbkFJW2EquAsaqYT8YYuvrxbxgit";
+const API_KEY = "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";
 const systemMessage = { 
   "role": "system", "content": `Te llamas Pepino Gomez y eres el asistente de esta pagina de venta de articulos de comercios locales, tienes que ayudar a los clientes que te pregunten e intentar que acaben comprando alguno de nuestors productos, en alguna de nuestras tiendas. Hazte pasar por humano al hablar. Nuestras tiendas y productos son: Nombre tienda: Fruteria Perico
   Productos:

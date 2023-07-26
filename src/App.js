@@ -16,7 +16,9 @@ const TiendaDetalles = lazy(() => import("./pages/Comercios/TiendaDetalles"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const About = lazy(() => import("./pages/About/About"));
-const Carrito = lazy(() => import("./componentes/Carrito/Carrito"));
+const NotFound= lazy(() => import("../src/pages/NotFound/NotFound"))
+const Profile = lazy(() => import('./pages/Profile/Profile'));
+const EditProfile = lazy(() => import('./pages/Profile/EditProfile'));
 
 const App = () => {
   return (
@@ -35,13 +37,15 @@ const App = () => {
               <Route
                 path="/tienda/:storeId"
                 element={<ProtectedRoute element={<TiendaDetalles />} />}
-                />
+              />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
-              <Route path="/tienda" element={<Carrito />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/profile/:userId" element={<Profile />} />
+              <Route path="/editProfile/:userId" element={<EditProfile />} />
             </Routes>
-            <Gpt></Gpt>
+            <Gpt/>
           </Suspense>
           <Footer/>
         </CartProvider>
