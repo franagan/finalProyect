@@ -15,6 +15,7 @@ const Login = lazy(() => import('./pages/Login/Login'));
 const Register = lazy(() => import('./pages/Register/Register'));
 const About = lazy(() => import('./pages/About/About'));
 const Profile = lazy(() => import('./pages/Profile/Profile'));
+const EditProfile = lazy(() => import('./pages/Profile/EditProfile'));
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/profile/:userId" element={<Profile />} />
+              <Route path="/editProfile/:userId" element={<EditProfile />} />
             </Routes>
           </Suspense>
         </AuthProvider>

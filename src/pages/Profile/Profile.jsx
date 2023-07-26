@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 const Profile = () => {
   const { userId } = useParams();
@@ -30,6 +30,9 @@ const Profile = () => {
       <p>Nombre: {user.name}</p>
       <p>Apellido: {user.lastname}</p>
       <p>Teléfono: {user.phone}</p>
+
+
+      <NavLink to={`/editProfile/${userId}`} className="btn btn-primary">Editar Perfil</NavLink>
     </div>
   );
 };
