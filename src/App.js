@@ -6,6 +6,7 @@ import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute";
 import Header from "./componentes/Header/Header";
 import Navbar from "./componentes/Navbar/Navbar";
 import Footer from "./componentes/Footer/Footer"
+import Gpt from "./componentes/Chat/Gpt";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Zapaterias = lazy(() => import("./pages/Comercios/Zapaterias"));
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/tienda" element={<Carrito />} />
             </Routes>
+            <Gpt></Gpt>
           </Suspense>
           <Footer/>
         </CartProvider>

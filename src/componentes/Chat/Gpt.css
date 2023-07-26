@@ -1,0 +1,19 @@
+.whatsbutton{
+    width: 75px;;
+    height:75px;
+    display:flex;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+  }
+  
+  .allchat{
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+  }
+  .pchat{
+    position: fixed;
+    bottom: 0px;
+    right: 5px;
+  }
