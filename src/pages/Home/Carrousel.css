@@ -83,6 +83,7 @@
   border: none;
   opacity: 0;
   animation: showcontent 1s ease-in-out 0.6s 1 forwards;
+  width: 30%;
 }
 @keyframes showcontent {
   from {
@@ -116,4 +117,5 @@
 
 .bton {
   background-color: red;
+  
 }
