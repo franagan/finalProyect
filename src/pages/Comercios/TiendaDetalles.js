@@ -37,21 +37,40 @@ const TiendaDetalles = () => {
     getStoreData();
   }, [storeId]);
 
+  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
+  const [isCommentEmpty, setIsCommentEmpty] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const comment = formData.get("comment");
-    console.log("Email:", email);
-    console.log("Comment:", comment);
-    setFormData({
-      email: "",
-      comment: "",
-    });
-    setMensajeEnviado(true);
-    setTimeout(() => {
-      setMensajeEnviado(false);
-    }, 7000);
+
+    if (email.trim() === '') {
+      setIsEmailEmpty(true);
+    } else {
+      setIsEmailEmpty(false);
+    }
+
+    if (comment.trim() === '') {
+      setIsCommentEmpty(true);
+    } else {
+      setIsCommentEmpty(false);
+    }
+
+    if (email.trim() !== '' && comment.trim() !== '') {
+      //los 2 campos están llenos, se puede enviar el formulario
+      console.log("Email:", email);
+      console.log("Comment:", comment);
+      setFormData({
+        email: "",
+        comment: "",
+      });
+      setMensajeEnviado(true);
+      setTimeout(() => {
+        setMensajeEnviado(false);
+      }, 7000);
+    }
   };
 
   const handleInputChange = (event) => {
@@ -71,14 +90,15 @@ const TiendaDetalles = () => {
       <div>
         {storeData && (
           <div>
-            <header className="inicioContainer">
+            <header className="inicio">
               <img
                 src={storeData.image}
-                className="foto"
+                className="img-thumbnail"
                 alt="imagen del comercio1"
+                style={{ width:"50%", height:"550px"}}
               />
-              <h2>{storeData.name}</h2>
-              <h4>{storeData.description}</h4>
+              <h1>{storeData.name}</h1>
+              <h3>{storeData.description}</h3>
               <p>Dirección: {storeData.direction}</p>
               <p>Teléfono: {storeData.phone}</p>
               <p>Localidad: {storeData.province}</p>
@@ -90,14 +110,15 @@ const TiendaDetalles = () => {
           </div>
         )}
 
-        <h4>Productos disponibles</h4>
-        <div className="cardContainer">
+
+        <div className="cardContainer1">
           {products.map((product) => (
             <div key={product._id} className="card">
               <img
                 src={product.image}
+                className="img-thumbnail"
                 alt={product.name}
-                style={{ width: "150px" }}
+                style={{ width:"100%",height:"200px"}}
               />
               <h4>{product.name}</h4>
               <div>
@@ -147,7 +168,7 @@ const TiendaDetalles = () => {
         </div>
       </div>
 
-      <div className="inputbox">
+      <div className="inputboxTienda">
         <h4>Formulario de contacto</h4>
         <p>(contacta directamente con la tienda)</p>
         <form onSubmit={handleSubmit}>
@@ -162,6 +183,7 @@ const TiendaDetalles = () => {
               onChange={handleInputChange}
             />
             <label htmlFor="floatingInput">Tu Email</label>
+            {isEmailEmpty && <p className="error">El e-mail no puede estar vacío.</p>}
           </div>
           <div className="form-floating mb-3">
             <textarea
@@ -173,6 +195,7 @@ const TiendaDetalles = () => {
               onChange={handleInputChange}
             ></textarea>
             <label htmlFor="floatingTextarea">¿En qué podemos ayudarte?</label>
+            {isCommentEmpty && <p p className="error">el comentario no puede estar vacío.</p>}
           </div>
           <button type="submit" className="btn btn-primary">
             Enviar
@@ -180,7 +203,11 @@ const TiendaDetalles = () => {
         </form>
         {mensajeEnviado && (
           <p className="mensaje-enviado">
-            Mensaje Enviado, en breve nos pondremos en contacto contigo.
+            Mensaje Enviado, en breve nos pondremos en contacto contigo{" "}
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-check" viewBox="0 0 16 16" >
+  <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+</svg>
           </p>
         )}
       </div>

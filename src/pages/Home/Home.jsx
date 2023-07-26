@@ -4,9 +4,13 @@ import { NavLink } from 'react-router-dom';
 import "./Home.css";
 import Carrousel from './Carrousel';
 
+
+
+
 const Store = () => {
   const [store, setStore] = useState([]);
   const [query, setQuery] = useState("");
+
 
   const getDataStore = async () => {
     const response = await axios.get(
@@ -20,6 +24,7 @@ const Store = () => {
     getDataStore();
   }, []);
 
+
   return (
     <div>
       <header className="inicioContainer">
@@ -29,14 +34,19 @@ const Store = () => {
         </p>
       </header>
 
+
       <Carrousel data={store} />
+
+
 
       <div className="inputbox">
         <input
           required="required"
           type="text"
           onChange={(e) => setQuery(e.target.value)}
+
           value={query}
+
         />
         <span>Busca tu tienda</span>
         <i></i>
@@ -68,5 +78,8 @@ const Store = () => {
     </div>
   );
 };
+
+
+
 
 export default Store;

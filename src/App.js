@@ -8,6 +8,7 @@ import Navbar from "./componentes/Navbar/Navbar";
 import Footer from "./componentes/Footer/Footer"
 import Gpt from "./componentes/Chat/Gpt";
 
+
 const Home = lazy(() => import("./pages/Home/Home"));
 const Zapaterias = lazy(() => import("./pages/Comercios/Zapaterias"));
 const Fruterias = lazy(() => import("./pages/Comercios/Fruterias"));
@@ -22,7 +23,6 @@ const EditProfile = lazy(() => import('./pages/Profile/EditProfile'));
 
 const App = () => {
   return (
-    <>
     <Router>
       <AuthProvider>
         <CartProvider>
@@ -51,7 +51,6 @@ const App = () => {
         </CartProvider>
       </AuthProvider>
     </Router>
-      </>
   );
 };
 
