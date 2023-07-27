@@ -35,10 +35,12 @@ En la terminal, ejecuta el siguiente comando para clonar el repositorio de Barri
 
 2. **Navegar a la carpeta del proyecto:**
 Accede a la carpeta del proyecto ejecutando el siguiente comando:
+
 `cd finalProyect`
 
 3. **Instalar las dependencias:**
 Para instalar todas las dependencias necesarias, ejecuta el siguiente comando:
+
 `npm install`
 
 4. **Configurar las variables de entorno:**
@@ -46,6 +48,7 @@ BarrioShop puede requerir algunas variables de entorno para funcionar correctame
 
 5. **Levantar el proyecto en local:**
 En la terminal, ejecuta el siguiente comando para levantar el servidor y poder accerder a la pagina inicial del proyecto:
+git
 `npm start`
 
 ¡Listo! Ahora deberías tener el proyecto BarrioShop instalado y funcionando en tu http://localhost:3000.
