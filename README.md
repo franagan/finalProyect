@@ -49,7 +49,6 @@ BarrioShop puede requerir algunas variables de entorno para funcionar correctame
 
 5. **Levantar el proyecto en local:**
 En la terminal, ejecuta el siguiente comando para levantar el servidor y poder accerder a la pagina inicial del proyecto:
-git
 
 `npm start`
 
