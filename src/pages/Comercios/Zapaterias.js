@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import "./Comercio.css";
+import "./Comercios.css";
 
 const Zapaterias = () => {
   const [stores, setStores] = useState([]);
@@ -25,13 +25,14 @@ const Zapaterias = () => {
 
   return (
     <div>
-      <header className="inicioContainer">
+      {/* <header className="inicioContainer">
         <h1>Bienvenido a nuestra página de Tiendas Online</h1>
         <p>
           Baja para explorar una variedad de tiendas en línea donde realizar tus compras
         </p>
-      </header>
+      </header> */}
 
+      
       <div className="inputbox">
         <input
           required="required"

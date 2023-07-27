@@ -1,14 +1,24 @@
 .wrapper {
   margin-top: 10%;
+  background-color: #fff;
 }
 
 .wrapper h1 {
   font-family: 'Noto';
   font-size: 62px;
-  margin-bottom: 160px;
+  margin-top: -100px;
+  margin-bottom: 100px;
   text-align: center;
   color: #3c6a6f;
+
 }
+
+.h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.6rem;
+  color: #008000;
+}
+
 
 .team {
   display: flex;
@@ -27,6 +37,8 @@
   line-height: 20px;
   color: #8e8b8b;
   position: relative;
+  border: 2px solid #3c6a6f;
+  border-radius: 10px;
 }
 
 .team .team_member h3 {
@@ -36,7 +48,7 @@
 }
 
 .team .team_member p.role {
-  color: #ccc;
+  color: #3c6a6f;
   margin: 12px 0;
   font-size: 12px;
   text-transform: uppercase;
@@ -136,8 +148,11 @@
     background-color: #34929c;
 }
 
+.text-muted {
+    --bs-text-opacity: 1;
+    color: rgb(255 255 255 / 75%)!important;
+}
 
-/*responsive*/
 
 @media (min-width:768px) and (max-width:991px){
     .right i {

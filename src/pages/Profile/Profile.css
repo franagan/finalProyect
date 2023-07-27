@@ -1,57 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* Estilos para el formulario de login y registro */
-.card {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-  padding: 20px;
-}
-
-.form-outline {
-  position: relative;
-}
-
-.form-control {
-  background-color: #f5f5f5;
-  border: none;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #333;
-  padding: 12px;
-  width: 100%;
-}
-
-.btn {
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  padding: 12px;
-  width: 100%;
-}
-
-.btn-primary {
-  background-color: #007bff;
-}
-
-/* Estilos para el formulario de edición de perfil */
-.form-group {
-  margin-bottom: 20px;
-}
-
-/* Estilos para el perfil de usuario */
 .profile-card {
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -61,39 +7,56 @@ body {
   padding: 20px;
 }
 
-/* Estilos para el formulario de registro de vendedor */
-.formRegister {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-  padding: 20px;
+.profile-card h3{
+  text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    color: #0d6efd;
 }
 
-.formRegister label {
-  display: block;
-  margin-bottom: 5px;
+
+.pepino {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.formRegister input,
-.formRegister select {
-  background-color: #f5f5f5;
-  border: none;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #333;
-  padding: 12px;
-  width: 100%;
-  margin-bottom: 10px;
+.pepinob {
+  display: flex;
+  margin-left: 25%;
+  width: 50%;
 }
 
-.formRegister button[type="submit"] {
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  padding: 12px;
-  width: 100%;
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    margin-right: 10px;
+}
+
+label {
+    display: inline-block;
+    font-weight: bold;
+}
+
+
+.plane {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    padding: 12px;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.message{
+    width: 90%;
+    border-radius: 10px;
+    border: #fff 1px;
 }

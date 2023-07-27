@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import "./EditProfile.css";
 
 const EditProfile = () => {
   const { userId } = useParams();
@@ -40,26 +41,52 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="edit-profile-form">
-      <h3>Editar Datos del Usuario</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Nombre</label>
-          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="lastname">Apellido</label>
-          <input type="text" id="lastname" name="lastname" value={formData.lastname} onChange={handleChange} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">Teléfono</label>
-          <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleChange} />
-        </div>
-        <button type="submit" className="btn btn-primary" disabled={submitting}>
-          {submitting ? 'Guardando...' : 'Guardar Cambios'}
-        </button>
-        {submitMessage && <p>{submitMessage}</p>}
-      </form>
+    <div className="container-global">
+      <div className="profile-card">
+        <h3>Editar Datos del Usuario</h3>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lastname">Apellido</label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="phone">Teléfono</label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="pepinoc">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={submitting}
+            >
+              {submitting ? "Guardando..." : "Guardar Cambios"}
+            </button>
+            {submitMessage && <p>{submitMessage}</p>}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

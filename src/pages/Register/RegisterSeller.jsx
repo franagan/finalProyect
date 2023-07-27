@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import axios from 'axios';
+import "./RegisterSeller.css";
 
 const RegisterSeller = () => {
     const {

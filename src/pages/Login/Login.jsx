@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../../Context/AuthProvider";
+import "./Login.css";
 
 const Login = () => {
   const { login, getUserIdByEmail } = useAuth();
@@ -51,8 +52,8 @@ const Login = () => {
         <div className="row g-0 d-flex align-items-center">
           <div className="col-lg-4 d-none d-lg-flex">
             <img
-              src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
-              alt="Trendy Pants and Shoes"
+              src="./login.png"
+              alt="login-img"
               className="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
             />
           </div>

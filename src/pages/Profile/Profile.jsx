@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, NavLink } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthProvider';
+import "./Profile.css";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -49,13 +50,28 @@ const Profile = () => {
   return (
     <div className="profile-card">
       <h3>Hola {user.name}, estos son tus datos:</h3>
-      <p>Email: {user.email}</p>
-      <p>Nombre: {user.name}</p>
-      <p>Apellido: {user.lastname}</p>
-      <p>Teléfono: {user.phone}</p>
-
-      <NavLink to={`/editProfile/${userId}`} className="btn btn-primary">Editar Perfil</NavLink>
-      <button className="btn btn-primary" onClick={handleDeleteClick}>Eliminar Usuario</button>
+      <div className="pepino">
+        <p>
+          <label>Email:</label> {user.email}
+        </p>
+        <p>
+          <label>Nombre:</label> {user.name}
+        </p>
+        <p>
+          <label>Apellido:</label> {user.lastname}
+        </p>
+        <p>
+          <label>Teléfono:</label> {user.phone}
+        </p>
+      </div>
+      <div className="pepinob">
+        <NavLink to={`/editProfile/${userId}`} className="btn btn-primary">
+          Editar Perfil
+        </NavLink>
+        <button className="btn btn-primary" onClick={handleDeleteClick}>
+          Eliminar Usuario
+        </button>
+      </div>
     </div>
   );
 };

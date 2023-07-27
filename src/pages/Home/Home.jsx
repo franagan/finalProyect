@@ -26,27 +26,25 @@ const Store = () => {
 
 
   return (
-    <div>
+    <div className='container-global'>
       <header className="inicioContainer">
         <h1>Bienvenido a nuestra página de Tiendas Online</h1>
         <p>
-          Baja para explorar una variedad de tiendas en línea donde realizar tus compras
+          Baja para explorar una variedad de tiendas en línea donde realizar tus
+          compras
         </p>
       </header>
 
-
-      <Carrousel data={store} />
-
-
+      <div className='carousel'>
+        <Carrousel data={store} />
+      </div>
 
       <div className="inputbox">
         <input
           required="required"
           type="text"
           onChange={(e) => setQuery(e.target.value)}
-
           value={query}
-
         />
         <span>Busca tu tienda</span>
         <i></i>
@@ -54,7 +52,9 @@ const Store = () => {
 
       <div className="cardContainer">
         {store
-          .filter((store) => store.name.toLowerCase().includes(query.toLowerCase()))
+          .filter((store) =>
+            store.name.toLowerCase().includes(query.toLowerCase())
+          )
           .map((store) => (
             <div key={store.id} className="card">
               <img
@@ -67,7 +67,7 @@ const Store = () => {
                 <p className="card-text">{store.description}</p>
                 <NavLink
                   className="btn btn-primary"
-                  to={`/tienda/${store._id}`}
+                  to={`/tienda/${store.category}`}
                 >
                   Comprar
                 </NavLink>

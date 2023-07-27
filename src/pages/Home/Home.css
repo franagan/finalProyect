@@ -1,13 +1,15 @@
 
 /* //////////// Estilos generales ///////////////////////// */
-
+.container-global{
+  background-color: white;
+}
 
 .inicioContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 30vh;
   background-color: #f9f9f9;
   opacity: 0;
   animation: fadeIn 1s forwards;
@@ -22,11 +24,13 @@
 .inicioContainer h1 {
   font-size: 3rem;
   margin-bottom: 16px;
+  font-family: 'Pacifico', cursive;
 }
 
 .inicioContainer p {
   font-size: 1.5rem;
   color: #777;
+  font-family: 'Pacifico', cursive;
 }
 
 
@@ -36,10 +40,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   flex-wrap: wrap;
   opacity: 0;
   animation: slideIn 3s forwards;
+}
+
+.card {
+  margin: 30px; /* Reduce el margen para tener más espacio en la pantalla */
+  opacity: 0;
+  animation: fadeInCard 3s forwards;
+  width: 18rem; /* Establece el ancho fijo para todos los elementos card */
+  height: 20rem; /* Establece la altura fija para todos los elementos card */
+}
+
+.card-img-top {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 8rem; /* Establece la altura fija para todas las imágenes */
+  object-fit: cover; /* Ajusta la imagen al tamaño del contenedor manteniendo el aspect ratio */
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #777;
+}
+
+.btn-primary {
+  align-self: center; /* Alinea el botón al centro horizontalmente */
+  margin-top: 10px;
 }
 
 @keyframes slideIn {
@@ -60,6 +100,15 @@
   to {
     opacity: 1;
   }
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    padding: 5px;
+    margin-left: 5px;
+    margin-bottom: 0px;
 }
 
 /* //////////// Estilos del INPUT //////////////////// */
@@ -84,6 +133,7 @@
   letter-spacing: 0.05em;
   transition: 0.5s;
   z-index: 10;
+  margin-top: 40px;
 }
 
 .inputbox span {
@@ -96,6 +146,7 @@
   transition: 0.5s;
   pointer-events: none;
   font-weight: bold;
+  margin-top: 40px;
 }
 
 .inputbox input:valid ~span,
@@ -125,5 +176,40 @@
 }
 
 
+.carousel {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 450px; /* Ajusta este valor según sea necesario */
+}
 
 
+@media (max-width:767px){
+    .inicioContainer {
+  margin-bottom: -400px;
+
+}
+}
+
+@media (max-width:767px){
+    .inicioContainer h1 {
+  text-align: center;
+
+}
+}
+
+@media (max-width:767px){
+    .inicioContainer p {
+  text-align: center;
+
+}
+}
+
+@media (max-width:767px){
+   .card {
+  margin: 30px; /* Reduce el margen para tener más espacio en la pantalla */
+  opacity: 0;
+  animation: fadeInCard 3s forwards;
+  width: 18rem; /* Establece el ancho fijo para todos los elementos card */
+  height: 20rem; /* Establece la altura fija para todos los elementos card */
+}
+}

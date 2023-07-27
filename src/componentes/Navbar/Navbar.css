@@ -1,6 +1,8 @@
 .navbar-container {
   display: flex;
   flex-direction: row-reverse;
+  background-color: white;
+  height: fit-content;
 }
 
 .navbar-custom {

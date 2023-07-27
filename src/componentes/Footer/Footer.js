@@ -24,8 +24,8 @@ const Footer = () => {
                     <h5 class="text-white mb-3" >Quick links</h5>
                     <ul class="list-unstyled text-muted">
                        <li ><Link className="social-name" to="">Inicio</Link></li> 
-                       <li><Link className="social-name" to="Comercios">Comercios</Link></li> 
                        <li><Link className="social-name" to="login">Login</Link></li> 
+                       <li><Link className="social-name" to="Register">Register</Link></li> 
                        <li><Link className="social-name" to="About">About Us</Link></li> 
             
                     </ul>
@@ -46,8 +46,8 @@ const Footer = () => {
                     <p class="small text-muted">Recibe toda la informacion y novedades de tus tiendas locales favoritas.</p>
                     <form action="#">
                         <div class="input-group mb-3">
-                            <input class="form-control" type="text" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+                            <input class="message" type="text" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                            <button class="plane" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
                         </div>
                     </form>
                 </div>

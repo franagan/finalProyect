@@ -1,7 +1,6 @@
 .test{
     background-color: #353235;
 }
-/* #353235; */
 
 .social-logo{
     width:20px;
@@ -15,4 +14,26 @@
 .social-name{
     text-decoration: none;
     color:whitesmoke;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: rgb(255 255 255 / 75%)!important;
+}
+
+.plane {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    padding: 12px;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.message{
+    width: 90%;
+    border-radius: 10px;
+    border: #fff 1px;
 }

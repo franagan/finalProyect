@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Register.css"
 
 const Register = () => {
   const [formUser, setFormUser] = useState({
@@ -106,8 +107,8 @@ const Register = () => {
         <div className="row g-0 d-flex align-items-center">
           <div className="col-lg-4 d-none d-lg-flex">
             <img
-              src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
-              alt="Trendy Pants and Shoes"
+              src="./register.png"
+              alt="register-img"
               className="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
             />
           </div>

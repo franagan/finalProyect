@@ -9,7 +9,7 @@ const About = () => {
       <div class="team">
         <div class="team_member">
           <div class="team_img">
-            <img src="./logo512.png" alt="Team_image"></img>
+            <img src="./Fran.png" alt="Fran_image"></img>
           </div>
           <h3>Fran</h3>
           <p class="role">Desarrollador</p>
@@ -19,7 +19,7 @@ const About = () => {
           </p>
           <div className="social-icons">
             <a
-              href="https://github.com/IvanVillenaG"
+              href="https://github.com/franagan"
               target="_blank"
               rel="noreferrer"
             >
@@ -27,7 +27,7 @@ const About = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/iv%C3%A1n-villena-gonz%C3%A1lez-aa5813269/"
+              href="https://www.linkedin.com/in/francisco-palero/"
               target="_blank"
               rel="noreferrer"
             >
@@ -38,7 +38,7 @@ const About = () => {
 
         <div class="team_member">
           <div class="team_img">
-            <img src="./logo512.png" alt="Team_image"></img>
+            <img src="./Soraya.png" alt="Soraya_image"></img>
           </div>
           <h3>Soraya</h3>
           <p class="role">Desarrolladora</p>
@@ -48,7 +48,7 @@ const About = () => {
           </p>
           <div className="social-icons">
             <a
-              href="https://github.com/IvanVillenaG"
+              href="https://github.com/Suzowy"
               target="_blank"
               rel="noreferrer"
             >
@@ -56,7 +56,7 @@ const About = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/iv%C3%A1n-villena-gonz%C3%A1lez-aa5813269/"
+              href="https://www.linkedin.com/in/soraya-casanova-9b4a88106/"
               target="_blank"
               rel="noreferrer"
             >
@@ -67,7 +67,7 @@ const About = () => {
 
         <div class="team_member">
           <div class="team_img">
-            <img src="./logo512.png" alt="Team_image"></img>
+            <img src="./login.png" alt="Team_image"></img>
           </div>
           <h3>Carlos</h3>
           <p class="role">Desarrollador</p>
@@ -77,7 +77,7 @@ const About = () => {
           </p>
           <div className="social-icons">
             <a
-              href="https://github.com/IvanVillenaG"
+              href="https://github.com/Risorio56"
               target="_blank"
               rel="noreferrer"
             >
@@ -85,7 +85,7 @@ const About = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/iv%C3%A1n-villena-gonz%C3%A1lez-aa5813269/"
+              href="https://www.linkedin.com/in/carlospastorcebria/"
               target="_blank"
               rel="noreferrer"
             >
@@ -96,17 +96,17 @@ const About = () => {
 
         <div class="team_member">
           <div class="team_img">
-            <img src="./logo512.png" alt="Team_image"></img>
+            <img src="./Cesar.png" alt="Team_image"></img>
           </div>
           <h3>Cesar</h3>
-          <p class="role">Tester</p>
+          <p class="role">Desarrollador</p>
           <p>
             Full Stack Developer con experiencia en JS | REACT | ANGULAR | NODE
             | MySQL | PHP
           </p>
           <div className="social-icons">
             <a
-              href="https://github.com/IvanVillenaG"
+              href="https://github.com/Shurjish"
               target="_blank"
               rel="noreferrer"
             >
@@ -114,7 +114,7 @@ const About = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/iv%C3%A1n-villena-gonz%C3%A1lez-aa5813269/"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -125,7 +125,7 @@ const About = () => {
 
         <div class="team_member">
           <div class="team_img">
-            <img src="./logo512.png" alt="Team_image"></img>
+            <img src="./Iván.png" alt="Iván_image"></img>
           </div>
           <h3>Iván</h3>
           <p class="role">Developer</p>
@@ -208,7 +208,6 @@ const About = () => {
           </div>
         </div>
       </div> */}
-
     </div>
   );
 };

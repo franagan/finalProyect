@@ -4,11 +4,15 @@ body {
   padding: 0;
 }
 
+.container-global{
+  background-color: white;
+}
+
+
 .text-center {
   text-align: center;
 }
 
-/* Estilos para el formulario de login y registro */
 .card {
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -39,13 +43,23 @@ body {
   color: #fff;
   cursor: pointer;
   padding: 12px;
-  width: 100%;
+  width: 58%;
 }
 
 .btn-primary {
-  background-color: #007bff;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    margin-right: 10px;
+    align-items: center;
+    margin-left: 40px;
 }
 
+.pepinoc {
+    display: flex;
+    justify-content: center;
+    margin-left: -30px;
+}
 /* Estilos para el formulario de edición de perfil */
 .form-group {
   margin-bottom: 20px;
@@ -53,12 +67,16 @@ body {
 
 /* Estilos para el perfil de usuario */
 .profile-card {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-  padding: 20px;
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /* Estilos para el formulario de registro de vendedor */
@@ -74,6 +92,7 @@ body {
 .formRegister label {
   display: block;
   margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .formRegister input,
@@ -96,4 +115,26 @@ body {
   cursor: pointer;
   padding: 12px;
   width: 100%;
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.plane {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    padding: 12px;
+    width: 10%;
+    border-radius: 10px;
+}
+
+.message{
+    width: 90%;
+    border-radius: 10px;
+    border: #fff 1px;
 }
