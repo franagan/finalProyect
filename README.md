@@ -31,7 +31,7 @@ Una vez que tengas los requisitos, sigue estos pasos para instalar BarrioShop:
 
 1. **Clonar el repositorio:**
 En la terminal, ejecuta el siguiente comando para clonar el repositorio de BarrioShop:
-`git clone https://github.com/tu-usuario/BarrioShop.git`
+`git clone https://github.com/franagan/finalProyect.git`
 
 2. **Navegar a la carpeta del proyecto:**
 Accede a la carpeta del proyecto ejecutando el siguiente comando:
