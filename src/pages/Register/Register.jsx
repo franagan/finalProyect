@@ -103,7 +103,7 @@ const Register = () => {
 
   return (
     <section className="text-center text-lg-start">
-      <div className="card mb-3">
+      <div className="tarjeta mb-3">
         <div className="row g-0 d-flex align-items-center">
           <div className="col-lg-4 d-none d-lg-flex">
             <img

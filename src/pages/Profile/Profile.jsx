@@ -68,8 +68,8 @@ const Profile = () => {
         <NavLink to={`/editProfile/${userId}`} className="btn btn-primary">
           Editar Perfil
         </NavLink>
-        <button className="btn btn-primary" onClick={handleDeleteClick}>
-          Eliminar Usuario
+        <button className="btn btn-danger" onClick={handleDeleteClick}>
+          Eliminar
         </button>
       </div>
     </div>

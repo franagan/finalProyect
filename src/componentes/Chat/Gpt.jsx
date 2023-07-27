@@ -184,7 +184,7 @@ function Gpt() {
 
         <div className="allchat">
           {chatVisible && (
-            <div style={{ position: "relative", height: "500px", width: "500px" }}>
+            <div style={{ position: "relative", height: "300px", width: "300px" }}>
               <MainContainer>
                 <ChatContainer>
                   <MessageList

@@ -2,80 +2,65 @@
  @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 
 
-.img-thumbnail{
-    display: flex;
-    justify-content: center;
-    margin: 5px auto 5px;
-   }
-
-.inicio{
-  font-family: 'Pacifico', cursive;
-   background-color: rgb(255, 255, 255);
-   color: rgb(0, 0, 0);
-    padding: 20px;
-    border-radius: 4px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-
-h1,h2,h4,p{
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
-h3{
+.img-fluid {
   display: flex;
-    justify-content: center;
-    margin: 20px;
-color: #ffca2c;
+  justify-content: center;
+  margin: 5px auto 5px;
+}
+
+.inicio {
+  font-family: "Pacifico", cursive;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 20px;
+}
+
+h1,
+h2,
+h4,
+p {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  color: #ffca2c;
 }
 
 .cardContainer1 {
+  background-color: white;
   display: flex;
   justify-content: center;
-  background-color: rgb(53, 50, 53);
-    padding: 20px;
-    border-radius: 4px;
-    opacity: 0;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 0;
   animation: slideIn 3s forwards;
-  }
-
-  @keyframes slideIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-
-
-  .card {
-    font-family: 'Josefin Sans', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
-    opacity: 0;
-    animation: fadeInCard 3s forwards;
-    width:18rem;
-    opacity: 0;
-
 }
 
-.img-thumbnail {
-    display: flex;
-    justify-content: center;
-    margin: 5px auto 5px;
-    height: 8rem;
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+  margin: 60px;
+  padding: 10px;
+  box-shadow: 1px 1px 8px rgb(32, 32, 31);
+  opacity: 0;
+  animation: fadeInCard 3s forwards;
+  width: 18rem;
+  opacity: 0;
 }
 
 @keyframes fadeInCard {
@@ -84,84 +69,48 @@ color: #ffca2c;
   }
 }
 
-
-  .inputboxTienda {
-    font-family: 'Josefin Sans', sans-serif;
-    display: block;
-    margin: auto;
-    padding: 20px;
-    background-image: linear-gradient(to bottom, rgb(147, 146, 147), #353235ff);
-    color: rgb(0, 0, 0);
-    margin-top: 10px;
-
-  }
-
- .inputbox input {
+.inputboxTienda {
+  font-family: "Josefin Sans", sans-serif;
+  display: block;
+  margin: auto;
+  padding: 20px;
+  background-image: linear-gradient(to bottom, rgb(147, 146, 147), #353235ff);
+  color: rgb(0, 0, 0);
+}
+.form-floating {
   position: relative;
-  width: 100%;
-  padding: 20px 10px 10px;
-  background: transparent;
-  outline: none;
-  box-shadow: none;
-  border: none;
-  color: #23242a;
-  font-size: 1em;
-  letter-spacing: 0.05em;
-  transition: 0.5s;
-  z-index: 10;
-  margin-top: 40px;
+  width: 25rem;
+  margin: auto;
+  display: block;
+}
+.btn {
+  position: relative;
+  margin: auto;
+  display: block;
+  border: 1px solid #000000;
 }
 
-.inputbox span {
-  position: absolute;
-  left: 0;
-  padding: 20px 10px 10px;
-  font-size: 1.2em;
-  color: #3f2e3e;
-  letter-spacing: 00.05em;
-  transition: 0.5s;
-  pointer-events: none;
-  font-weight: bold;
-  margin-top: 40px;
+.mensaje-enviado {
+  background-color: #157347;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideIn 2s forwards;
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-  
-  .form-floating{
-    position: relative;
-    width: 25rem;
-    margin: auto;
-    display:block;
-  }
-  .btn{
-    position: relative;
-    margin: auto;
-    display:block;
-  }
-
-  .mensaje-enviado {
-    background-color: #157347;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    opacity: 0;
-    transform: translateX(-100%);
-    animation: slideIn 3s forwards;
-  }
-  @keyframes slideIn {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-.error{
-background-color: rgba(255, 0, 0, 0.463);
-color: white;
-border-radius: 5px;
-padding: 10px;
-animation: fadeIn 1s ease-in;
+.alert-danger {
+  animation: fadeIn 1s ease-in;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -171,55 +120,49 @@ animation: fadeIn 1s ease-in;
   }
 }
 
+.bi {
+  margin-left: 10px;
+}
 
-  .bi {
-  margin-left:10px;
+@media screen and (max-width: 768px) {
+  .cardContainer1 {
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: slideIn 3s forwards;
   }
 
-
-
-  @media screen and (max-width: 768px) {
-
-
-    .cardContainer1 {
-      display: flex;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: slideIn 3s forwards;
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  .card {
+    margin: 10px;
+  }
+
+  @keyframes fadeInCard {
+    to {
+      opacity: 1;
     }
-
-    .card {
-      margin: 10px;
-    }
-
-    @keyframes fadeInCard {
-      to {
-        opacity: 1;
-      }
-}
-.form-floating{
- 
-  width:80%;
-
-}
-
+  }
+  .form-floating {
+    width: 80%;
+  }
 }
 
 
-
-@media (max-width:767px){
-   .card {
-  margin: 30px; /* Reduce el margen para tener más espacio en la pantalla */
-  opacity: 0;
-  animation: fadeInCard 3s forwards;
-  width: 18rem; /* Establece el ancho fijo para todos los elementos card */
-  height: 20rem; /* Establece la altura fija para todos los elementos card */
+.alert-danger {
+  animation: fadeIn 1s ease-in;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

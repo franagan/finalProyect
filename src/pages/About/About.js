@@ -67,7 +67,7 @@ const About = () => {
 
         <div class="team_member">
           <div class="team_img">
-            <img src="./login.png" alt="Team_image"></img>
+            <img src="./Carlos.png" alt="Team_image"></img>
           </div>
           <h3>Carlos</h3>
           <p class="role">Desarrollador</p>

@@ -46,12 +46,20 @@
 }
 
 .card {
-  margin: 30px; /* Reduce el margen para tener más espacio en la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+  margin: 60px;
+  padding: 10px;
+  box-shadow: 1px 1px 8px rgb(32, 32, 31);
   opacity: 0;
   animation: fadeInCard 3s forwards;
-  width: 18rem; /* Establece el ancho fijo para todos los elementos card */
-  height: 20rem; /* Establece la altura fija para todos los elementos card */
+  width: 18rem;
+  opacity: 0;
+  height: auto;
 }
+
 
 .card-img-top {
   width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
@@ -87,13 +95,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.card {
-  margin: 60px;
-  opacity: 0;
-  animation: fadeInCard 3s forwards;
-  width:18rem;
 }
 
 @keyframes fadeInCard {

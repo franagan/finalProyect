@@ -67,7 +67,7 @@ const Store = () => {
                 <p className="card-text">{store.description}</p>
                 <NavLink
                   className="btn btn-primary"
-                  to={`/tienda/${store.category}`}
+                  to={`/tienda/${store._id}`}
                 >
                   Comprar
                 </NavLink>

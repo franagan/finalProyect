@@ -93,9 +93,9 @@ const TiendaDetalles = () => {
             <header className="inicio">
               <img
                 src={storeData.image}
-                className="img-thumbnail"
+                className="img-fluid"
                 alt="imagen del comercio1"
-                style={{ width:"50%", height:"550px"}}
+                style={{ width:"40%", height:"auto"}}
               />
               <h1>{storeData.name}</h1>
               <h3>{storeData.description}</h3>
@@ -183,7 +183,7 @@ const TiendaDetalles = () => {
               onChange={handleInputChange}
             />
             <label htmlFor="floatingInput">Tu Email</label>
-            {isEmailEmpty && <p className="error">El e-mail no puede estar vacío.</p>}
+            {isEmailEmpty && <p className="alert alert-danger">El e-mail no puede estar vacío.</p>}
           </div>
           <div className="form-floating mb-3">
             <textarea
@@ -195,7 +195,7 @@ const TiendaDetalles = () => {
               onChange={handleInputChange}
             ></textarea>
             <label htmlFor="floatingTextarea">¿En qué podemos ayudarte?</label>
-            {isCommentEmpty && <p p className="error">el comentario no puede estar vacío.</p>}
+            {isCommentEmpty && <p p className="alert alert-danger">el comentario no puede estar vacío.</p>}
           </div>
           <button type="submit" className="btn btn-primary">
             Enviar
