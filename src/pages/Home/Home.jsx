@@ -28,8 +28,8 @@ const Store = () => {
   return (
     <div className='container-global'>
       <header className="inicioContainer">
-        <h1>Bienvenido a nuestra página de Tiendas Online</h1>
-        <p>
+        <h1 className='bienvenida-h1'>Bienvenido a nuestra página de Tiendas Online</h1>
+        <p className='bienvenida-p'>
           Baja para explorar una variedad de tiendas en línea donde realizar tus
           compras
         </p>
@@ -65,14 +65,15 @@ const Store = () => {
               <div className="card-body">
                 <h5 className="card-title">{store.name}</h5>
                 <p className="card-text">{store.description}</p>
-                <NavLink
-                  className="btn btn-primary"
+              </div>
+              <NavLink
+                  className="btn btn-success"
                   to={`/tienda/${store._id}`}
                 >
                   Comprar
                 </NavLink>
-              </div>
             </div>
+          
           ))}
       </div>
     </div>

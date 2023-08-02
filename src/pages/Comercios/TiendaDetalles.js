@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useAuth } from "../../Context/AuthProvider";
-import { useNavigate } from "react-router-dom";
 import "./Comercio.css";
 import { useCart } from "../../Context/CartContext";
 
 const TiendaDetalles = () => {
   const { storeId } = useParams();
-  const { isLoggedIn } = useAuth();
-  const navigate = useNavigate();
   const [storeData, setStoreData] = useState(null);
   const [products, setProducts] = useState([]);
   const [formData, setFormData] = useState({
@@ -17,9 +13,9 @@ const TiendaDetalles = () => {
     comment: "",
   });
   const [mensajeEnviado, setMensajeEnviado] = useState(false);
-  const [showCart, setShowCart] = useState(false);
 
-  const { cart, addToCart, removeFromCart, calculateTotalUnits, calculateTotal } = useCart();
+
+  const { cart, addToCart, } = useCart();
 
   useEffect(() => {
     const getStoreData = async () => {
@@ -59,7 +55,6 @@ const TiendaDetalles = () => {
     }
 
     if (email.trim() !== '' && comment.trim() !== '') {
-      //los 2 campos están llenos, se puede enviar el formulario
       console.log("Email:", email);
       console.log("Comment:", comment);
       setFormData({
@@ -94,8 +89,8 @@ const TiendaDetalles = () => {
               <img
                 src={storeData.image}
                 className="img-fluid"
-                alt="imagen del comercio1"
-                style={{ width:"40%", height:"auto"}}
+                alt="imagen del comercio"
+
               />
               <h1>{storeData.name}</h1>
               <h3>{storeData.description}</h3>
@@ -111,23 +106,23 @@ const TiendaDetalles = () => {
         )}
 
 
-        <div className="cardContainer1">
+        <div className="cardContainer">
           {products.map((product) => (
             <div key={product._id} className="card">
               <img
                 src={product.image}
-                className="img-thumbnail"
+                className="card-img-top"
                 alt={product.name}
-                style={{ width:"100%",height:"200px"}}
               />
-              <h4>{product.name}</h4>
+              <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
               <div>
-                {product.price.toLocaleString("es-ES", {
+                <p className="card-text">{product.price.toLocaleString("es-ES", {
                   style: "currency",
                   currency: "EUR",
-                })}
+                })}</p>
+              <p className="card-text">{product.description}</p>
               </div>
-              <p>{product.description}</p>
               <button
                 onClick={() => handleAddToCart(product)}
                 className="btn btn-success"
@@ -164,6 +159,7 @@ const TiendaDetalles = () => {
                 )}
               </button>
             </div>
+            </div>
           ))}
         </div>
       </div>
@@ -196,10 +192,11 @@ const TiendaDetalles = () => {
             ></textarea>
             <label htmlFor="floatingTextarea">¿En qué podemos ayudarte?</label>
             {isCommentEmpty && <p p className="alert alert-danger">el comentario no puede estar vacío.</p>}
-          </div>
-          <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
             Enviar
           </button>
+          </div>
+        
         </form>
         {mensajeEnviado && (
           <p className="mensaje-enviado">

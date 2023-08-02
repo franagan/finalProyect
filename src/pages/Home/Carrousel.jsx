@@ -34,7 +34,7 @@ const Carrousel = (props) => {
                             <div className="name">{store.name}</div>
                             <div className="des">{store.description}</div>
                             <NavLink
-                                className="btn btn-primary bton"
+                                className="btn btn-success"
                                 to={`/tienda/${store._id}`}
                             >
                                 Comprar

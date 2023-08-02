@@ -1,38 +1,48 @@
- @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
- @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
-
-
-.img-fluid {
-  display: flex;
-  justify-content: center;
-  margin: 5px auto 5px;
-}
 
 .inicio {
-  font-family: "Pacifico", cursive;
   background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
   padding: 20px;
 }
 
-h1,
+
+.img-fluid {
+  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  margin: 5px auto 5px;
+  padding: 3px;
+  width: 700px;
+  height: 600px;
+  border: 2px solid #000000;
+}
+
+
+
+h1{
+  display: flex;
+  justify-content: center;
+  color:#008000;
+  font-weight: bold;
+  padding: 10px;
+}
+
 h2,
 h4,
 p {
   display: flex;
   justify-content: center;
-  margin: 20px;
 }
 
 h3 {
   display: flex;
   justify-content: center;
-  margin: 20px;
-  color: #ffca2c;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bolder;
+  color: #008000;
 }
 
-.cardContainer1 {
-  background-color: white;
+/*.cardContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,102 +77,28 @@ h3 {
   to {
     opacity: 1;
   }
-}
+}*/
 
 .inputboxTienda {
   font-family: "Josefin Sans", sans-serif;
   display: block;
   margin: auto;
   padding: 20px;
-  background-image: linear-gradient(to bottom, rgb(147, 146, 147), #353235ff);
+  background-image: linear-gradient(to bottom, rgb(186, 186, 186), #353235ff);
   color: rgb(0, 0, 0);
 }
-.form-floating {
-  position: relative;
-  width: 25rem;
-  margin: auto;
-  display: block;
-}
-.btn {
-  position: relative;
-  margin: auto;
-  display: block;
-  border: 1px solid #000000;
-}
 
-.mensaje-enviado {
-  background-color: #157347;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  opacity: 0;
-  transform: translateX(-100%);
-  animation: slideIn 2s forwards;
-}
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-.alert-danger {
-  animation: fadeIn 1s ease-in;
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.bi {
-  margin-left: 10px;
-}
 
 @media screen and (max-width: 768px) {
-  .cardContainer1 {
-    display: flex;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: slideIn 3s forwards;
-  }
 
-  @keyframes slideIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .card {
-    margin: 10px;
-  }
-
-  @keyframes fadeInCard {
-    to {
-      opacity: 1;
-    }
-  }
-  .form-floating {
-    width: 80%;
-  }
+.img-fluid{
+width: 90%;
+height: auto;
+}
+.form-floating{
+width:100%;
 }
 
-
-.alert-danger {
-  animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

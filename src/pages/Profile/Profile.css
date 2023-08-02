@@ -1,8 +1,8 @@
 .profile-card {
-  background-color: #f9f9f9;
+  background-color: #4545453c;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(76, 74, 74, 0.662);
+  margin: 150px auto;
   max-width: 600px;
   padding: 20px;
 }
@@ -16,25 +16,20 @@
 }
 
 
-.pepino {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 25%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.datos {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 10px;
+ padding-bottom: 10px;
 }
 
-.pepinob {
+.botones {
   display: flex;
-  margin-left: 25%;
-  width: 55%;
+
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
     margin-right: 10px;
 }
 
@@ -44,19 +39,10 @@ label {
 }
 
 
-.plane {
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    padding: 12px;
-    width: 10%;
-    border-radius: 10px;
-}
-
-.message{
+@media (max-width:767px){
+  .profile-card {
     width: 90%;
-    border-radius: 10px;
-    border: #fff 1px;
-}
+  }
+ 
+  
+  }

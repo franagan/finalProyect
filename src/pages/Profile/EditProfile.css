@@ -1,76 +1,19 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .container-global{
-  background-color: white;
+  margin:150px;
 }
 
 
-.text-center {
-  text-align: center;
-}
-
-.card {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-  padding: 20px;
-}
-
-.form-outline {
-  position: relative;
-}
-
-.form-control {
-  background-color: #f5f5f5;
-  border: none;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #333;
-  padding: 12px;
-  width: 100%;
-}
-
-.btn {
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  padding: 12px;
-  width: 58%;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    margin-right: 10px;
-    align-items: center;
-    margin-left: 40px;
-}
-
-.pepinoc {
-    display: flex;
-    justify-content: center;
-    margin-left: -30px;
-}
 /* Estilos para el formulario de edición de perfil */
 .form-group {
-  margin-bottom: 20px;
+  padding: 10px;
 }
 
 /* Estilos para el perfil de usuario */
 .profile-card {
     display: flex;
-    background-color: #f9f9f9;
+    background-color: #a8a8a853;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 5px 6px rgba(0, 0, 0, 0.644);
     margin: 20px auto;
     max-width: 600px;
     padding: 20px;
@@ -79,7 +22,21 @@ body {
     align-items: center;
 }
 
-/* Estilos para el formulario de registro de vendedor */
+@media (max-width:767px){
+  .profile-card {
+    width: 90%;
+  }
+
+  .container-global{
+    margin:30px;
+    width: 90%;
+  }
+
+  }
+
+
+/* Estilos para el formulario de registro de vendedor
+
 .formRegister {
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -93,6 +50,7 @@ body {
   display: block;
   margin-bottom: 5px;
   margin-right: 5px;
+
 }
 
 .formRegister input,
@@ -137,4 +95,4 @@ label {
     width: 90%;
     border-radius: 10px;
     border: #fff 1px;
-}
+}*/

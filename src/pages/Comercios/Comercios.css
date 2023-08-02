@@ -1,5 +1,5 @@
 
-.inicioContainer {
+/*.inicioContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +70,7 @@
 }
 
 .btn-primary {
-  align-self: center; /* Alinea el botón al centro horizontalmente */
+  align-self: center;  
   margin-top: 10px;
 }
 
@@ -152,5 +152,5 @@
 .inputbox input:valid ~i,
 .inputbox input:focus ~i {
   height: 44px;
-}
+}*/
 

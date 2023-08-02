@@ -1,61 +1,51 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+
+
+
+.row {
+margin-top:60px;
+margin: 50px;
 }
 
-.text-center {
+.login-img{
+  margin: 20px;
+  width: 100%;
+}
+
+.col-lg-8{
+  display: flex;
+  justify-content: center;
   text-align: center;
-}
-
-
-.card {
-  background-color: #f9f9f9;
+  background-color: #b5b5b556;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  width: 600px;
-  padding: 20px;
+  margin-left: 200px;
+  width: 400px;
+  padding:20px;
+  box-shadow: 2px 2px 10px rgb(47, 82, 56);
 }
 
 .form-outline {
   position: relative;
+  width: 300px;
 }
 
 .form-control {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border: none;
   border-radius: 8px;
   box-shadow: none;
-  color: #333;
+  color: #616161;
   padding: 12px;
   width: 100%;
 }
-
-.btn {
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  padding: 12px;
-  width: 100%;
-}
-
-.btn-primary {
-  background-color: #007bff;
-}
-
 
 .form-group {
   margin-bottom: 20px;
 }
 
 
-.profile-card {
-  background-color: #f9f9f9;
+/*.profile-card {
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(88, 88, 88, 0.938);
   margin: 20px auto;
   max-width: 600px;
   padding: 20px;
@@ -63,7 +53,6 @@ body {
 
 
 .formRegister {
-  background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
@@ -89,29 +78,37 @@ body {
 }
 
 .formRegister button[type="submit"] {
-  background-color: #007bff;
   border: none;
   border-radius: 8px;
   color: #fff;
   cursor: pointer;
   padding: 12px;
   width: 100%;
-}
+}*/
+
+/*label noticias*/
+
+@media (max-width:767px){
 
 
-.plane {
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    padding: 12px;
-    width: 10%;
-    border-radius: 10px;
-}
+  .login-img{
+   display: none;
+    }
 
-.message{
-    width: 90%;
-    border-radius: 10px;
-    border: #fff 1px;
-}
+    .col-lg-8{
+      margin: 5px;
+      width: 100%;
+      padding:10px;
+      box-shadow:1px 1px 10px rgb(7, 7, 7);
+    }
+
+    .form-outline {
+      position: relative;
+      width:100%;
+    }
+
+    .form-control {
+      background-color: #ffffff;
+      width: 100%;
+    }
+  }

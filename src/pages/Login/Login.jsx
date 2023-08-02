@@ -48,17 +48,17 @@ const Login = () => {
 
   return (
     <section className="text-center text-lg-start">
-      <div className="card mb-3">
+      <div className="tarjeta">
         <div className="row g-0 d-flex align-items-center">
           <div className="col-lg-4 d-none d-lg-flex">
             <img
               src="./login.png"
               alt="login-img"
-              className="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
+              className="login-img"
             />
           </div>
           <div className="col-lg-8">
-            <div className="card-body py-5 px-md-5">
+            <div>
               <h2>Iniciar sesión</h2>
               <form onSubmit={onSubmit}>
                 <div className="form-outline mb-4">

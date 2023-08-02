@@ -103,20 +103,20 @@ const Register = () => {
 
   return (
     <section className="text-center text-lg-start">
-      <div className="tarjeta mb-3">
+      <div className="tarjeta">
         <div className="row g-0 d-flex align-items-center">
           <div className="col-lg-4 d-none d-lg-flex">
             <img
               src="./register.png"
               alt="register-img"
-              className="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
+              className="register-img"
             />
           </div>
           <div className="col-lg-8">
             <div className="card-body py-5 px-md-5">
               <h2>Registro</h2>
               <form onSubmit={onSubmit}>
-                <div className="mb-4">
+                <div className="form-outline mb-4">
                   <input
                     type="text"
                     id="name"
@@ -129,7 +129,7 @@ const Register = () => {
 
                 </div>
 
-                <div className="mb-4">
+                <div className="form-outline mb-4">
                   <input
                     type="text"
                     id="lastname"
@@ -142,7 +142,7 @@ const Register = () => {
 
                 </div>
 
-                <div className="mb-4">
+                <div className="form-outline mb-4">
                   <input
                     type="email"
                     id="email"
@@ -155,7 +155,7 @@ const Register = () => {
 
                 </div>
 
-                <div className="mb-4">
+                <div className="form-outline mb-4">
                   <input
                     type="text"
                     id="phone"
@@ -168,7 +168,7 @@ const Register = () => {
 
                 </div>
 
-                <div className="mb-4">
+                <div className="form-outline mb-4">
                   <input
                     type="password"
                     id="password"
@@ -181,7 +181,7 @@ const Register = () => {
 
                 </div>
 
-                <div className="mb-4">
+                <div className="form-outline mb-4">
                   <input
                     type="password"
                     id="confirmPassword"

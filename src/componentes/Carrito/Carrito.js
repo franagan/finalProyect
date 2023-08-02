@@ -18,7 +18,7 @@ const Carrito = () => {
           {cart.map((product) => (
             <li key={product._id}>
               <div>
-                <img src={product.image}  className="img-thumbnail" alt={product.name} style={{ width: "100px" }} />
+                <img src={product.image}  className="imagen" alt={product.name} style={{ width: "100px" }} />
               </div>
               <div>{product.name}</div>
               <div>{product.price.toLocaleString("es-ES", { style: "currency", currency: "EUR" })}</div>

@@ -75,13 +75,13 @@ const EditProfile = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="pepinoc">
+          <div>
             <button
               type="submit"
               className="btn btn-primary"
               disabled={submitting}
             >
-              {submitting ? "Guardando..." : "Guardar Cambios"}
+              {submitting ? "Guardando..." : "Guardar"}
             </button>
             {submitMessage && <p>{submitMessage}</p>}
           </div>

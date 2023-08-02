@@ -50,7 +50,7 @@ const Profile = () => {
   return (
     <div className="profile-card">
       <h3>Hola {user.name}, estos son tus datos:</h3>
-      <div className="pepino">
+      <div className="datos">
         <p>
           <label>Email:</label> {user.email}
         </p>
@@ -64,9 +64,9 @@ const Profile = () => {
           <label>Teléfono:</label> {user.phone}
         </p>
       </div>
-      <div className="pepinob">
+      <div className="botones">
         <NavLink to={`/editProfile/${userId}`} className="btn btn-primary">
-          Editar Perfil
+          Editar
         </NavLink>
         <button className="btn btn-danger" onClick={handleDeleteClick}>
           Eliminar

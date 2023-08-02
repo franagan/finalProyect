@@ -12,7 +12,7 @@ const Footer = () => {
                 <div class="col-lg-4 col-md-6">
                     <h5 class="h1 text-white">Compras Locales.</h5>
                     <p class="small text-muted">Esta pagina ha sido desarrollada por 5 bestias del react</p>
-                    <div> <img className="social-logo-big" src='https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-icon.png'></img>
+                    <div className='social-logos'> <img className="social-logo-big" src='https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-icon.png'></img>
                     <img className="social-logo-big" src='https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-square-color-icon.png'></img>
                     <img className="social-logo-big" src='https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-icon.png'></img>
                     <img className="social-logo-big" src='https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/facebook-square-color-icon.png'></img>
