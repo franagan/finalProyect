@@ -95,12 +95,6 @@
   color: #fff;
 }
 
-.form-area {
-	padding-top: 7%;
-}
-.row.single-form {
-	box-shadow: 0 2px 20px -5px #3c6a6f;
-}
 .left {
 	background: #3c6a6f;
 	padding: 200px 98px;
@@ -128,9 +122,9 @@
 	top: 40%;
 	color: #fff;
 }
-.form-control {
+/*.form-control {
 	border: 2px solid #3c6a6f;
-}
+}*/
 .right button {
 	border: none;
 	border-radius: 0;
@@ -193,5 +187,4 @@
 	width: 150px;
 	padding: 12px 0;
 }
-    
 }
