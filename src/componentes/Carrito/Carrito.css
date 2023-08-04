@@ -6,14 +6,18 @@
   border-radius: 5px;
   padding: 10px;
   opacity: 0;
-    animation: fadeIn 3s forwards;
+  transform: translateX(100%);
+  animation: slideInRight 2.5s forwards;
 }
 
-@keyframes fadeIn {
+@keyframes slideInRight {
   to {
+    transform: translateX(0);
     opacity: 1;
   }
 }
+
+
 
 .shopping ul {
   width: 100%;
@@ -23,7 +27,7 @@
 
 .shopping li {
   background-color: #ffffffce;
-  color: #000000d5;
+  color: #000000e0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,6 +47,5 @@
   font-weight: bold;
   margin: 10px;
 }
-
 
 

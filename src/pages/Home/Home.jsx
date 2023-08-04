@@ -26,7 +26,7 @@ const Store = () => {
 
 
   return (
-    <div className='container-global'>
+    <div >
       <header className="inicioContainer">
         <h1 className='bienvenida-h1'>Bienvenido a nuestra página de Tiendas Online</h1>
         <p className='bienvenida-p'>

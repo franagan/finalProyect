@@ -32,7 +32,7 @@
    width: 18rem;
    opacity: 0;
    height: 390px;
-   background-image: radial-gradient(ellipse at center, rgb(255, 255, 255), rgb(0, 0, 0));
+   background-image: radial-gradient(ellipse at center, rgb(255, 255, 255), rgba(0, 0, 0, 0.591));
 
  }
 

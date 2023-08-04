@@ -1,3 +1,10 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 450px;
+}
+
+
 .containe {
   position: absolute;
   margin-top: 200px;
@@ -8,14 +15,11 @@
   height: 400px;
   padding: 50px;
   border-radius: 40px;
-  background-color: #eeeeeeaf;
-  box-shadow: 0 30px 50px #a9a8a8;
+  background-color: #5a5a5ae8;
+  box-shadow: 0 20px 40px rgb(52, 71, 50);
 }
 
-#slide {
-  width: max-content;
-  margin-top: 50px;
-}
+
 
 .item {
   width: 200px;
@@ -70,7 +74,7 @@
     color: #ffffff;
     transform: translate(0, -50%);
     display: none;
-    background-color: #00000065;
+    background-color: #00000093;
     border-radius: 20px;
     height: 300px;
 }
@@ -90,7 +94,7 @@
 }
 
 .item .des {
-  font-size: 15px;
+  font-size: 17px;
   margin-left: 10px;
   opacity: 0;
   animation: showcontent 1s ease-in-out 0.3s 1 forwards;
@@ -98,13 +102,6 @@
   margin-top: 20px;
 }
 
-.item button {
-  padding: 10px 20px;
-  border: none;
-  opacity: 0;
-  animation: showcontent 1s ease-in-out 0.6s 1 forwards;
-  width: 30%;
-}
 
 @keyframes showcontent {
   from {
@@ -140,28 +137,17 @@
 }
 
 
-@media (max-width:768px){
+@media (max-width:844px){
 
   .containe {
-    top: 40%;
     transform: translate(-50%, -50%);
     width:80%;
     height: 400px;
-    padding: 10px;
-    background-color: #eeeeeeaf;
-    box-shadow: 0 30px 50px #a9a8a8;
   }
 
-  #slide {
-    width: max-content;
-    margin-top: 50px;
-    
-  }
-  
   .item {
-    width:160px;
+    width:170px;
     height:200px;
-    background-position: 50% 50%;
     display: inline-block;
     transition: 0.8s;
     background-size: cover;
@@ -172,34 +158,19 @@
     border-radius: 20px;
     box-shadow: 0 30px 50px #070707;
   }
-  .item:nth-child(1) {
-  display: none;
-  }
 
 
   .item .content {
-      position: absolute;
-      top: 0%;
-      left: -20px;
+      left: -30px;
       width: 300px;
-      text-align: left;
-      padding: 0;
-      color: #ffffff;
-      transform: translate(0, -50%);
-      display: none;
-      background-color: #00000077;
-      border-radius: 20px;
       height: 300px;
   }
 
 
-  
+
   .item .des {
     font-size: 16px;
     margin-left: 10px;
-    opacity: 0;
-    animation: showcontent 1s ease-in-out 0.3s 1 forwards;
-    font-family: 'Josefin Sans', sans-serif;
     margin-top: 10px;
   }
 
