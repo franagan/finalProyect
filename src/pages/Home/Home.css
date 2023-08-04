@@ -110,6 +110,7 @@
   width: 25rem;
   margin: auto;
   display:block;
+
 }
 
 .inputbox input {
@@ -146,7 +147,7 @@
   color: #3f2e3e;
   transform: translateX(-10px) translateY(-34px);
   font-size: 0.9em;
-  
+
 }
 
 .inputbox i {
@@ -171,19 +172,20 @@
 .carousel {
   display: flex;
   justify-content: center;
-  margin-bottom: 450px; /* Ajusta este valor según sea necesario */
+  margin-bottom: 450px;
 }
 
 
-@media (max-width:767px){
+@media (max-width:768px){
 
   .bienvenida-h1{
-  font-weight: 600;
-    font-size: 25px;
-    margin: 10px;
-    }
-    .bienvenida-p{
-      margin: 10px;
-      font-size: 15px;
-    }
+   font-weight: 600;
+   font-size: 25px;
+   margin: 10px;
+  }
+
+  .bienvenida-p{
+   margin: 10px;
+   font-size: 15px;
+  }
 }
